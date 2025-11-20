@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: matijamurk/milenij-dokumentacija # e.g. marko/my-docs
+  repo: MatijaMurk/milenij-dokumentacija # e.g. marko/my-docs
   branch: main # or master
   base_url: https://api.netlify.com # Uses Netlify's free auth bridge
   auth_endpoint: auth
