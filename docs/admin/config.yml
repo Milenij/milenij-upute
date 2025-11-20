@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main # IMPORTANT: Check if your branch is 'main' or 'master' on GitHub!
+
+media_folder: "docs/assets/images"
+public_folder: "/assets/images"
+
+# This allows you to publish instantly without approval draft steps
+publish_mode: editorial_workflow
+
+collections:
+  - name: "docs"
+    label: "Documentation"
+    folder: "docs" # Monitors the docs folder
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
