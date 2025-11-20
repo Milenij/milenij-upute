@@ -5,7 +5,6 @@ paths:
 collections_config:
   docs:
     path: docs
-    glob: '**/*.md'
     icon: docs
     disable_url: false
     _enabled_editors:
