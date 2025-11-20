@@ -1,5 +1,5 @@
 ---
-title: Pocetna
+title: Home
 ---
 # Welcome to MkDocs
 
