@@ -9,9 +9,8 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
+![](/uploads/screenshot-2025-10-21-092206.png)
+
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+mkdocs.yml    \# The configuration file. docs/ index.md  \# The documentation homepage. ...       \# Other markdown pages, images and other files.
