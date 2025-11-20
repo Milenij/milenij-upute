@@ -6,3 +6,7 @@ markdown:
   engine: commonmark
   options: {}
 source: /milenij-documentation/
+collections_config:
+  docs:
+    path: docs
+    icon: docs
