@@ -28,6 +28,7 @@ collections:
     label: "Documentation"
     folder: "docs" # Monitors the docs folder
     create: true
+    nested: {depth: 10}
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
