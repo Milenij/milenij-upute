@@ -1,6 +1,24 @@
 site_name: Milenij Dokumentacija
 theme:
   name: material
+  language: en # Change to 'hr' for Croatian if needed
+  features:
+    - navigation.instant # Makes clicking links feel instant
+    - navigation.tabs # Adds top-level tabs (like 4D Wand might use)
+    - navigation.sections # Makes sidebar sections expandable
+    - navigation.expand # Opens the sidebar to where you are currently reading
+    - search.suggest # Smart search suggestions
+    - search.highlight # Highlights search results
   palette: 
-    primary: blue # You can change this later to match your brand
-    accent: indigo
+    primary: indigo # Change this to match your brand color
+    accent: blue
+
+plugins:
+  - search # Enables the search bar
+
+# This creates the Sidebar Structure
+nav:
+  - Home: index.md
+  - 'Početak':
+      - 'Instalacija': getting-started/instalacija.md
+      - 'Prvi Koraci': getting-started/prvi-koraci.md
