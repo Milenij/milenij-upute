@@ -9,7 +9,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-![](/uploads/screenshot-2025-10-21-092206.png)
+![](/screenshot-2025-10-21-092206.png)
 
 ## Project layout
 
