@@ -41,8 +41,9 @@ collections:
     label: "Documentation"
     folder: "docs"
     create: true
-    # THIS IS THE MAGIC LINE:
-    # It tells the CMS: "Put this file inside the folder named after the category"
+    nested:
+      depth: 5 # Look inside subfolders up to 5 levels deep
+      summary: "{{title}}"
     slug: "{{category}}/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
