@@ -29,7 +29,7 @@ collections:
   # This lets you create new folders visually
   - name: "categories"
     label: "Manage Categories"
-    folder: "docs/_categories" # Stores category names in a hidden folder
+    folder: "cms-data/categories" # Stores category names in a hidden folder
     create: true
     slug: "{{slug}}"
     fields:
