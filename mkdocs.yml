@@ -15,10 +15,3 @@ theme:
 
 plugins:
   - search # Enables the search bar
-
-# This creates the Sidebar Structure
-nav:
-  - Home: index.md
-  - 'Početak':
-      - 'Instalacija': pocetak/instalacija.md
-      - 'Prvi Koraci': pocetak/prvi-koraci.md
