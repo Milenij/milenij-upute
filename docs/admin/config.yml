@@ -24,19 +24,33 @@ commit_messages:
 publish_mode: editorial_workflow
 
 collections:
+  # 1. The "Category Creator" (Hidden Helper)
+  # This lets you create new folders visually
+  - name: "categories"
+    label: "Manage Categories"
+    folder: "docs/_categories" # Stores category names in a hidden folder
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Category Name", name: "title", widget: "string"}
+      - {label: "Description", name: "body", widget: "markdown", required: false}
+
+  # 2. The Real Documentation
   - name: "docs"
     label: "Documentation"
     folder: "docs"
     create: true
-    nested:
-      depth: 10
-      summary: '{{title}}'
-    # vvv THE FIX IS HERE vvv
-    meta: { path: { widget: string, label: 'Path', index: true, index_file: "index" } }
-    # ^^^ Added "index_file: index" ^^^
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
+    # THIS IS THE MAGIC LINE:
+    # It tells the CMS: "Put this file inside the folder named after the category"
+    slug: "{{category}}/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      # This creates a dynamic dropdown that pulls from the list above
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
       - {label: "Body", name: "body", widget: "markdown"}
