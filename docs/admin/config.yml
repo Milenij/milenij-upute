@@ -6,7 +6,7 @@ backend:
   base_url: https://auth.decapbridge.com
   auth_endpoint: /sites/52bcc5a8-1773-4be2-9a89-f2f8ab332807/pkce
   auth_token_endpoint: /sites/52bcc5a8-1773-4be2-9a89-f2f8ab332807/token
-  gateway_url: "https://git.decapbridge.com"
+  gateway_url: https://gateway.decapbridge.com
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
