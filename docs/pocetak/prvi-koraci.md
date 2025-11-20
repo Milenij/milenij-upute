@@ -1,5 +1,6 @@
-# Prvi koraci
-
+---
+title: Prvi koraci
+---
 Dobrodošli! Ovaj dokument vas vodi kroz osnovne korake za pokretanje i korišćenje softvera.
 
 ## Instalacija

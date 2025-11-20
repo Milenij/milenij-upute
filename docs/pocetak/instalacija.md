@@ -1,5 +1,6 @@
-# Installation Guide
-
+---
+title: Installation Guide
+---
 ## Prerequisites
 Before starting the installation, ensure you have the following:
 - Required hardware specifications.
