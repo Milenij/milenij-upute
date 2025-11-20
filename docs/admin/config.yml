@@ -28,7 +28,12 @@ collections:
     label: "Documentation"
     folder: "docs" # Monitors the docs folder
     create: true
-    nested: {depth: 10}
+    nested:
+      depth: 10 # Allows up to 10 levels of subfolders
+      summary: '{{title}}'
+    # vvv ADD THIS SECTION vvv
+    meta: { path: { widget: string, label: 'Path', index: true } }
+    # ^^^ THIS ENABLES FOLDER CREATION ^^^
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
