@@ -5,7 +5,6 @@ theme:
   language: en # Change to 'hr' for Croatian if needed
   features:
     - navigation.instant # Makes clicking links feel instant
-    - navigation.sections # Turns top-level folders into bold sections
     - navigation.expand   # Adds the arrow icon to expand/collapse
     - navigation.indexes
     - search.suggest # Smart search suggestions
