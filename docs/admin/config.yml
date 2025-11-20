@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main # IMPORTANT: Check if your branch is 'main' or 'master' on GitHub!
+  name: github
+  repo: matijamurk/milenij-dokumentacija # e.g. marko/my-docs
+  branch: main # or master
+  base_url: https://api.netlify.com # Uses Netlify's free auth bridge
+  auth_endpoint: auth
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
