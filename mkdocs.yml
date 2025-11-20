@@ -1,4 +1,5 @@
 site_name: Milenij Dokumentacija
+site_url: https://matijamurk.github.io/milenij-dokumentacija/
 theme:
   name: material
   language: en # Change to 'hr' for Croatian if needed
