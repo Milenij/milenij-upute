@@ -26,14 +26,14 @@ publish_mode: editorial_workflow
 collections:
   - name: "docs"
     label: "Documentation"
-    folder: "docs" # Monitors the docs folder
+    folder: "docs"
     create: true
     nested:
-      depth: 10 # Allows up to 10 levels of subfolders
+      depth: 10
       summary: '{{title}}'
-    # vvv ADD THIS SECTION vvv
-    meta: { path: { widget: string, label: 'Path', index: true } }
-    # ^^^ THIS ENABLES FOLDER CREATION ^^^
+    # vvv THE FIX IS HERE vvv
+    meta: { path: { widget: string, label: 'Path', index: true, index_file: "index" } }
+    # ^^^ Added "index_file: index" ^^^
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
