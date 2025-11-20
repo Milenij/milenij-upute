@@ -1,0 +1,8 @@
+paths:
+  static: ''
+  uploads: uploads
+timezone: Europe/Zagreb
+markdown:
+  engine: commonmark
+  options: {}
+source: /milenij-documentation/
