@@ -1,0 +1,6 @@
+site_name: Milenij Dokumentacija
+theme:
+  name: material
+  palette: 
+    primary: blue # You can change this later to match your brand
+    accent: indigo
