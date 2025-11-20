@@ -20,5 +20,5 @@ plugins:
 nav:
   - Home: index.md
   - 'Početak':
-      - 'Instalacija': getting-started/instalacija.md
-      - 'Prvi Koraci': getting-started/prvi-koraci.md
+      - 'Instalacija': pocetak/instalacija.md
+      - 'Prvi Koraci': pocetak/prvi-koraci.md
