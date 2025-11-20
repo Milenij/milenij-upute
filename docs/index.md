@@ -1,6 +1,6 @@
 ---
 title: Home
-category: Instalacija
+category: Home
 ---
 # Welcome to MkDocs
 
