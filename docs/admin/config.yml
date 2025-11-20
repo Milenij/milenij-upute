@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: MatijaMurk/milenij-dokumentacija # e.g. marko/my-docs
   branch: main # or master
   auth_type: pkce
