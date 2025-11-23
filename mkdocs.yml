@@ -9,9 +9,22 @@ theme:
     - navigation.indexes
     - search.suggest # Smart search suggestions
     - search.highlight # Highlights search results
-  palette: 
-    primary: indigo # Change this to match your brand color
+  palette:
+  - media: "(prefers-color-scheme: light)" 
+    scheme: default
+    primary: 1E6FA7 # Change this to match your brand color
+    accent: 74C2E6
+    toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate   # 'slate' is the name of the dark theme
+    primary: black 
     accent: blue
+    toggle:
+      icon: material/weather-night
+      name: Switch to light mode
 
 plugins:
   - search # Enables the search bar
