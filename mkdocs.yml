@@ -26,7 +26,8 @@ theme:
     toggle:
       icon: material/weather-night
       name: Switch to light mode
-  markdown_extensions:
+  
+markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences:
