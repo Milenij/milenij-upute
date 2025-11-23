@@ -1,6 +1,6 @@
 ---
 title: Primjeri
-folder_path: primjeri
+folder_path: primjeri/
 ---
 !!! note "Zapamti"
     Ovo je plava bilješka za korisnika.
