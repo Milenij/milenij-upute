@@ -1,3 +1,3 @@
 ---
-title: Ugostiteljestvo
+title: Ugostiteljstvo
 ---
