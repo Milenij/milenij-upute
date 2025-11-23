@@ -29,3 +29,4 @@ graph TD;
     A[Račun] --> B{Plaćeno?};
     B -- Da --> C[Arhiva];
     B -- Ne --> D[Opomena];
+```
