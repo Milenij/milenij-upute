@@ -1,5 +1,6 @@
 site_name: Milenij Dokumentacija
 site_url: https://matijamurk.github.io/milenij-dokumentacija/
+copyright: Copyright &copy; 2024 Milenij d.o.o. - Sva prava pridržana.
 theme:
   name: material
   language: en # Change to 'hr' for Croatian if needed
@@ -49,3 +50,4 @@ extra:
     - icon: fontawesome/solid/envelope
       link: mailto:info@milenij.hr
       name: Kontaktirajte nas
+  generator: false
