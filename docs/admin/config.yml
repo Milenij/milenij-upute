@@ -34,6 +34,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Category Name", name: "title", widget: "string"}
+      - {label: "Real Folder Path", name: "folder_path", widget: "string", hint: "e.g. invoicing/refunds"}
       - {label: "Description", name: "body", widget: "markdown", required: false}
 
   # 2. The Real Documentation
