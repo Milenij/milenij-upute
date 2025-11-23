@@ -3,7 +3,9 @@ site_url: https://matijamurk.github.io/milenij-dokumentacija/
 copyright: Copyright &copy; 2024 Milenij d.o.o. - Sva prava pridržana.
 theme:
   name: material
-  language: en # Change to 'hr' for Croatian if needed
+  language: hr # Change to 'hr' for Croatian if needed
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
   features:
     - navigation.instant # Makes clicking links feel instant
     - navigation.expand   # Adds the arrow icon to expand/collapse
