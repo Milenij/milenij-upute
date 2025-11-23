@@ -13,3 +13,19 @@ category: Primjeri
 
 ??? tip "Klikni za savjet"
     Ovo je sklopiva kutija (harmonika). Korisno za dugačke upute.
+
+**Kartice sadrzaja**
+
+=== "Windows 10"
+    Idite na Start -> Postavke.
+
+=== "Windows 11"
+    Desni klik na Start -> Postavke.
+
+**Diagrami**
+
+```mermaid
+graph TD;
+    A[Račun] --> B{Plaćeno?};
+    B -- Da --> C[Arhiva];
+    B -- Ne --> D[Opomena];
