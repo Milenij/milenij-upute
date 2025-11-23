@@ -16,8 +16,8 @@ theme:
   palette:
   - media: "(prefers-color-scheme: light)" 
     scheme: default
-    primary: 1E6FA7 # Change this to match your brand color
-    accent: 74C2E6
+    primary: dark blue # Change this to match your brand color
+    accent: orange
     toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
