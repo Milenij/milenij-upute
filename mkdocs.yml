@@ -7,6 +7,7 @@ theme:
     - navigation.instant # Makes clicking links feel instant
     - navigation.expand   # Adds the arrow icon to expand/collapse
     - navigation.indexes
+    - navigation.top
     - search.suggest # Smart search suggestions
     - search.highlight # Highlights search results
   palette:
@@ -25,6 +26,25 @@ theme:
     toggle:
       icon: material/weather-night
       name: Switch to light mode
+  markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+    custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
 
 plugins:
   - search # Enables the search bar
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://milenij.hr
+      name: Naša web stranica
+    - icon: fontawesome/solid/envelope
+      link: mailto:info@milenij.hr
+      name: Kontaktirajte nas
