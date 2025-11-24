@@ -2,4 +2,3 @@ mkdocs
 mkdocs-material
 pymdown-extensions
 mkdocs-awesome-pages-plugin
-mkdocs-section-index
