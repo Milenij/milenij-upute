@@ -1,6 +1,6 @@
 ---
 title: Uvod u financije
-category: financije-i-računovodstvo/
+category: financije/
 ---
 
 # Uvod u modul Financije i Računovodstvo
