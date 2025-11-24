@@ -8,9 +8,12 @@ theme:
   favicon: assets/images/logo.png
   features:
     - navigation.instant # Makes clicking links feel instant
-    - navigation.expand   # Adds the arrow icon to expand/collapse
-    #- navigation.indexes
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    #- navigation.expand   # Adds the arrow icon to expand/collapse
+    - navigation.indexes
     - navigation.top
+    - navigation.path
     - search.suggest # Smart search suggestions
     - search.highlight # Highlights search results
   palette:
@@ -43,7 +46,7 @@ markdown_extensions:
 
 plugins:
   - search # Enables the search bar
-  - section-index
+  
 
 extra:
   social:
