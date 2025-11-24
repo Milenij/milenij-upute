@@ -12,7 +12,7 @@ Glavni prozor se otvara svakim pozivanjem programa. To je "okvir" unutar kojega 
 !!! danger "Zatvaranje programa"
     Zatvaranjem glavnog prozora programa automatski se zatvaraju i svi ostali otvoreni prozori, tj. **prekida se rad programa**.
 
-
+![](assets/images/slika_glavniprozor.png)
 
 ### Struktura prozora
 
