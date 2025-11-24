@@ -1,5 +1,5 @@
 ---
-title: "OSNOVO KORIŠTENJE "
+title: Osnovno korištenje
 ---
 U ovom dijelu uputa ukratko ćemo objasniti pojmove, oznake, simbole i konvencije s kojima ćete se često susretati 
 koristeći naš program i čitajući upute za rad.
