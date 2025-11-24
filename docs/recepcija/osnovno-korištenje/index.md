@@ -12,7 +12,7 @@ Glavni prozor se otvara svakim pozivanjem programa. To je "okvir" unutar kojega 
 !!! danger "Zatvaranje programa"
     Zatvaranjem glavnog prozora programa automatski se zatvaraju i svi ostali otvoreni prozori, tj. **prekida se rad programa**.
 
-![](assets/images/slika_glavniprozor.png)
+![glavni_prozor](assets/images/slika_glavniprozor.png)
 
 ### Struktura prozora
 
@@ -23,7 +23,7 @@ graph TD;
     A[Glavni Prozor Aplikacije] --> B(Pod-prozor: Računi);
     A --> C(Pod-prozor: Partneri);
     A --> D(Pod-prozor: Skladište);
-    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style A fill:#77f,stroke:#333,stroke-width:4px
 ```
 
 Kada imate otvorenih više modula, preglednije je vidjeti koji prozori pripadaju kojem programu nego kad se nalaze svuda po desktopu. Minimiziranjem glavnog prozora minimiziraju se i svi njegovi zavisni prozori.
