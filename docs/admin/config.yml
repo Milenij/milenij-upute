@@ -11,6 +11,7 @@ backend:
 
 media_folder: "docs/assets/images"
 public_folder: "assets/images"
+relative_links: true
 
 
 
