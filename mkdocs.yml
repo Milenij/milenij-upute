@@ -43,6 +43,7 @@ markdown_extensions:
 
 plugins:
   - search # Enables the search bar
+  - awesome-pages
 
 extra:
   social:
