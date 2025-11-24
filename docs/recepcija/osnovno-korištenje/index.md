@@ -12,7 +12,7 @@ Glavni prozor se otvara svakim pozivanjem programa. To je "okvir" unutar kojega 
 !!! danger "Zatvaranje programa"
     Zatvaranjem glavnog prozora programa automatski se zatvaraju i svi ostali otvoreni prozori, tj. **prekida se rad programa**.
 
-![glavni_prozor](/assets/images/slika_glavniprozor.png)
+![](assets/images/slika_glavniprozor.png)
 
 ### Struktura prozora
 
@@ -28,7 +28,7 @@ graph TD;
 
 Kada imate otvorenih više modula, preglednije je vidjeti koji prozori pripadaju kojem programu nego kad se nalaze svuda po desktopu. Minimiziranjem glavnog prozora minimiziraju se i svi njegovi zavisni prozori.
 
----
+- - -
 
 ## Glavni izbornik (Meni)
 
@@ -36,14 +36,16 @@ Svaka opcija na glavnom meniju predstavlja jedno područje rada.
 
 !!! info "Konvencija pisanja u uputama"
     Kako ove upute ne bismo pretvorili u slikovnicu, putanju do određene opcije pisat ćemo skraćeno.
-    
-    Primjer: **Osnovno -> Sistem -> Korisnici**
-    
-    1. Kliknite na **Osnovno** (Glavni izbornik).
-    2. Odaberite **Sistem** (Padajući izbornik).
-    3. Odaberite **Korisnici** (Podizbornik).
 
----
+```
+Primjer: **Osnovno -> Sistem -> Korisnici**
+
+1. Kliknite na **Osnovno** (Glavni izbornik).
+2. Odaberite **Sistem** (Padajući izbornik).
+3. Odaberite **Korisnici** (Podizbornik).
+```
+
+- - -
 
 ## Tipkovnica
 
@@ -53,19 +55,19 @@ Tipkovnica se sastoji od dva dijela: slovnog i numeričkog. Desni dio tipkovnice
     Pazite da je tipka **NumLock** uvijek uključena!
     Lampica na tipkovnici mora svijetliti kako biste mogli nesmetano upisivati cijene, količine i šifre.
 
----
+- - -
 
 ## Aktivna komponenta (Fokus)
 
 Kako znati gdje trenutno upisujete podatku? U Windows okruženju to zovemo polje "u fokusu".
 
-| Stanje | Izgled na ekranu |
-| :--- | :--- |
+| Stanje            | Izgled na ekranu                              |
+| ----------------- | --------------------------------------------- |
 | **Aktivno dugme** | Dobiva točkasti okvir oko sebe i masna slova. |
-| **Polje za upis** | Mijenja boju (npr. u žutu ili plavu). |
-| **Tabela** | Zaglavlje ili redak mijenja boju. |
+| **Polje za upis** | Mijenja boju (npr. u žutu ili plavu).         |
+| **Tabela**        | Zaglavlje ili redak mijenja boju.             |
 
----
+- - -
 
 ## Polje za upis datuma
 
@@ -73,21 +75,25 @@ Polja za datum su "pametna" polja koja ubrzavaju unos. Kada je polje aktivno, on
 
 Evo kako možete ubrzati rad s datumima:
 
-=== "Prečaci na tipkovnici"
+\=== "Prečaci na tipkovnici"
     Koristite ove tipke za brzu promjenu datuma bez pisanja:
-    
-    * `+` (Plus) : Povećava datum za jedan dan.
-    * `-` (Minus) : Smanjuje datum za jedan dan.
-    * `D` (Slovo D) : Automatski upisuje **Današnji** datum.
 
-=== "Pametni unos"
+```
+* `+` (Plus) : Povećava datum za jedan dan.
+* `-` (Minus) : Smanjuje datum za jedan dan.
+* `D` (Slovo D) : Automatski upisuje **Današnji** datum.
+```
+
+\=== "Pametni unos"
     Ne morate pisati točke ni pune godine. Program razumije skraćeni unos:
-    
-    * Unos **15** -> Program pretvara u: `15.03.2024.` (tekući mjesec i godina)
-    * Unos **1502** -> Program pretvara u: `15.02.2024.` (tekuća godina)
-    * Unos **150223** -> Program pretvara u: `15.02.2023.`
 
----
+```
+* Unos **15** -> Program pretvara u: `15.03.2024.` (tekući mjesec i godina)
+* Unos **1502** -> Program pretvara u: `15.02.2024.` (tekuća godina)
+* Unos **150223** -> Program pretvara u: `15.02.2023.`
+```
+
+- - -
 
 ## Odjava korisnika
 
