@@ -1,6 +1,6 @@
 ---
 title: Knjiženje Ulaznih Računa
-category: Ulazne fakture
+category: financije-i-računovodstvo/ulazne-fakture
 ---
 # Knjiženje Ulaznih Računa (URA)
 
