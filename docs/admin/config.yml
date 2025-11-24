@@ -34,7 +34,7 @@ collections:
     create: true
     nested: { depth: 5, summary: "{{title}}" }
     # This lets you create subfolders easily
-    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index" } }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index",required:false } }
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -45,7 +45,7 @@ collections:
     folder: "docs/skladiste"
     create: true
     nested: { depth: 5, summary: "{{title}}" }
-    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index" } }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index",required:false } }
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -56,7 +56,7 @@ collections:
     folder: "docs/recepcija"
     create: true
     nested: { depth: 5, summary: "{{title}}" }
-    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index" } }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index", required:false } }
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -67,7 +67,7 @@ collections:
     folder: "docs/ugostiteljstvo"
     create: true
     nested: { depth: 5, summary: "{{title}}" }
-    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index" } }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true, index_file: "index",required:false } }
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
