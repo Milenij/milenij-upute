@@ -27,35 +27,47 @@ commit_messages:
 publish_mode: editorial_workflow
 
 collections:
-  # 1. The "Category Creator" (Hidden Helper)
-  # This lets you create new folders visually
-  - name: "categories"
-    label: "Manage Categories"
-    folder: "cms-data/categories" # Stores category names in a hidden folder
+  # --- MODULE 1: FINANCIJE ---
+  - name: "financije"
+    label: "💰 Financije" # You can use emojis!
+    folder: "docs/financije" # Files save here automatically
     create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Category Name", name: "title", widget: "string"}
-      - {label: "Real Folder Path", name: "folder_path", widget: "string", hint: "e.g. invoicing/refunds", required: true, pattern: ['^[a-z0-9\-/]+$', "Only lowercase letters, numbers, dashes, and slashes allowed."]}
-      - {label: "Description", name: "body", widget: "markdown", required: false}
-
-  # 2. The Real Documentation
-  - name: "docs"
-    label: "Documentation"
-    folder: "docs"
-    create: true
-    nested:
-      depth: 5 # Look inside subfolders up to 5 levels deep
-      summary: "{{title}}"
-    slug: "{{category}}/{{slug}}"
+    nested: { depth: 5, summary: "{{title}}" }
+    # This lets you create subfolders easily
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true } }
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      # This creates a dynamic dropdown that pulls from the list above
-      - label: "Category"
-        name: "category"
-        widget: "relation"
-        collection: "categories"
-        search_fields: ["title"]
-        value_field: "folder_path"
-        display_fields: ["title"]
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # --- MODULE 2: SKLADIŠTE ---
+  - name: "skladiste"
+    label: "📦 Skladište"
+    folder: "docs/skladiste"
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true } }
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # --- MODULE 3: RECEPCIJA ---
+  - name: "recepcija"
+    label: "🛎️ Recepcija"
+    folder: "docs/recepcija"
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true } }
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # --- MODULE 4: UGOSTITELJSTVO ---
+  - name: "ugostiteljstvo"
+    label: "☕ Ugostiteljstvo"
+    folder: "docs/ugostiteljstvo"
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    meta: { path: { widget: string, label: 'Subfolder (Optional)', index: true } }
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
