@@ -54,6 +54,6 @@ collections:
         widget: "relation"
         collection: "categories"
         search_fields: ["title"]
-        value_field: "title"
+        value_field: "folder_path"
         display_fields: ["title"]
       - {label: "Body", name: "body", widget: "markdown"}
