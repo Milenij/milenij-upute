@@ -39,7 +39,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Category Name", name: "title", widget: "string"}
-      - {label: "Real Folder Path", name: "folder_path", widget: "string", hint: "e.g. invoicing/refunds", required: false, pattern: ['^[a-z0-9\-/]+$', "Only lowercase letters, numbers, dashes, and slashes allowed."]}
+      - {label: "Real Folder Path", name: "folder_path", widget: "string", hint: "e.g. invoicing/refunds", required: true, pattern: ['^[a-z0-9\-/]+$', "Only lowercase letters, numbers, dashes, and slashes allowed."]}
       - {label: "Description", name: "body", widget: "markdown", required: false}
 
   # 2. The Real Documentation
