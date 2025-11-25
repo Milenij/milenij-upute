@@ -50,19 +50,13 @@ collections:
       - {label: "Naslov", name: "title", widget: "string"}
       - label: "Oznake"
         name: "tags"
-        widget: "select"
-        multiple: true
-        create: true  
-        options: 
-          - "racunovodstvo"
-          - "knjizenje"
-          - "izvjestaji"
-          - "financije"
-          - "skladiste"
-          - "recepcija"
-          - "gosti"
-          - "artikli"
-          - "blagajna"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
       - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 2: SKLADIŠTE ---
@@ -96,19 +90,13 @@ collections:
       - {label: "Naslov", name: "title", widget: "string"}
       - label: "Oznake"
         name: "tags"
-        widget: "select"
-        multiple: true
-        create: true  
-        options: 
-          - "racunovodstvo"
-          - "knjizenje"
-          - "izvjestaji"
-          - "financije"
-          - "skladiste"
-          - "recepcija"
-          - "gosti"
-          - "artikli"
-          - "blagajna"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
       - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 4: UGOSTITELJSTVO ---
@@ -122,17 +110,11 @@ collections:
       - {label: "Naslov", name: "title", widget: "string"}
       - label: "Oznake"
         name: "tags"
-        widget: "select"
-        multiple: true
-        create: true  
-        options: 
-          - "racunovodstvo"
-          - "knjizenje"
-          - "izvjestaji"
-          - "financije"
-          - "skladiste"
-          - "recepcija"
-          - "gosti"
-          - "artikli"
-          - "blagajna"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
       - {label: "Tekst", name: "body", widget: "markdown"}
