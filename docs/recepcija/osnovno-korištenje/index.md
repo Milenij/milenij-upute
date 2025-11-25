@@ -1,5 +1,9 @@
 ---
 title: Osnovno korištenje
+tags:
+  - racunovodstvo
+keywords:
+  - osnovno-koristenje
 ---
 # Osnovni pojmovi i konvencije
 
