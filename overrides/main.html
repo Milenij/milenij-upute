@@ -4,10 +4,9 @@
   
   {% if page.meta.keywords %}
     <nav class="md-tags" style="margin-bottom: 1rem;">
-      <span style="font-weight: bold; font-size: 0.8rem; margin-right: 8px; color: #555;">Keywords:</span>
       
       {% for keyword in page.meta.keywords %}
-        <span class="md-tag" style="background-color: #eee; color: #333; border: 1px solid #ddd;">
+        <span class="md-tag" style="background-color: #eee; color: #333 !important; border: 1px solid #ddd;">
           {{ keyword }}
         </span>
       {% endfor %}
