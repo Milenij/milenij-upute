@@ -4,16 +4,13 @@
   
   {% if page.meta.keywords %}
     <nav class="md-tags" style="margin-bottom: 1rem;">
-      {# Handle if it is a List (from List Widget) #}
-      {% if page.meta.keywords is iterable and page.meta.keywords is not string %}
-        {% for keyword in page.meta.keywords %}
-          <span class="md-tag">{{ keyword }}</span>
-        {% endfor %}
+      <span style="font-weight: bold; font-size: 0.8rem; margin-right: 8px; color: #555;">Keywords:</span>
       
-      {# Handle if it is a String (from Text Widget) #}
-      {% else %}
-        <span class="md-tag">{{ page.meta.keywords }}</span>
-      {% endif %}
+      {% for keyword in page.meta.keywords %}
+        <span class="md-tag" style="background-color: #eee; color: #333; border: 1px solid #ddd;">
+          {{ keyword }}
+        </span>
+      {% endfor %}
     </nav>
   {% endif %}
 
