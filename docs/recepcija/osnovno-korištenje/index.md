@@ -4,6 +4,7 @@ tags:
   - racunovodstvo
 keywords:
   - osnovno-koristenje
+  - "123"
 ---
 # Osnovni pojmovi i konvencije
 
