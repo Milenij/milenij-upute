@@ -59,11 +59,10 @@ collections:
         create: true
       - label: "Dodatne ključne riječi"
         name: "keywords"
-        widget: "select"    # <--- Use Select, NOT List
-        multiple: true      # Allows many keywords
-        create: true        # Allows typing new ones
-        options: ["-"]     # Defaults to empty
-        hint: "Upišite specifične ključne riječi samo za ovaj članak. Pritisnite Enter nakon svake." 
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
         required: false
       - {label: "Tekst", name: "body", widget: "markdown"}
 

@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {{ super() }}
   
   {% if page.meta.keywords %}
-    <div style="display:none">
-      {{ page.meta.keywords | join(' ') }}
-    </div>
+    <nav class="md-tags" style="margin-bottom: 1rem;">
+      {# Handle if it is a List (from List Widget) #}
+      {% if page.meta.keywords is iterable and page.meta.keywords is not string %}
+        {% for keyword in page.meta.keywords %}
+          <span class="md-tag">{{ keyword }}</span>
+        {% endfor %}
+      
+      {# Handle if it is a String (from Text Widget) #}
+      {% else %}
+        <span class="md-tag">{{ page.meta.keywords }}</span>
+      {% endif %}
+    </nav>
   {% endif %}
+
+  {{ super() }}
+
 {% endblock %}
