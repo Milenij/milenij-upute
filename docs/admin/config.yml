@@ -59,8 +59,10 @@ collections:
         create: true
       - label: "Dodatne ključne riječi"
         name: "keywords"
-        widget: "list"  # Allows adding multiple text strings
-        default: []     # Defaults to empty
+        widget: "select"    # <--- Use Select, NOT List
+        multiple: true      # Allows many keywords
+        create: true        # Allows typing new ones
+        options: []     # Defaults to empty
         hint: "Upišite specifične ključne riječi samo za ovaj članak. Pritisnite Enter nakon svake." 
         required: false
       - {label: "Tekst", name: "body", widget: "markdown"}
