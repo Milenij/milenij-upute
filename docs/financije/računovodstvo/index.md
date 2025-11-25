@@ -1,10 +1,10 @@
 ---
-title: racunovodstvo
+title: Računovodstvo
 tags:
   - racunovodstvo
 keywords:
-  - test
   - racuni
-  - "123"
+  - knjigovodstvo
+  - ura
 ---
 test
