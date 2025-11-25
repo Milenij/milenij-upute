@@ -62,7 +62,7 @@ collections:
     create: true
     nested: { depth: 5, summary: "{{title}}" }
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-     fields:
+    fields:
       - {label: "Naslov", name: "title", widget: "string"}
       - label: "Tagovi"
         name: "tags"
@@ -114,7 +114,7 @@ collections:
     create: true
     nested: { depth: 5, summary: "{{title}}" }
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-     fields:
+    fields:
       - {label: "Naslov", name: "title", widget: "string"}
       - label: "Tagovi"
         name: "tags"
