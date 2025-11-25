@@ -19,8 +19,8 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.path
-    - search.suggest # Smart search suggestions
-    - search.highlight # Highlights search results
+    - search.suggest
+    - search.highlight 
   palette:
   - media: "(prefers-color-scheme: light)" 
     scheme: default
