@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ super() }}
+  
+  {% if page.meta.keywords %}
+    <div style="display:none">
+      {{ page.meta.keywords | join(' ') }}
+    </div>
+  {% endif %}
+{% endblock %}
