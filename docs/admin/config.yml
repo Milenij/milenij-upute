@@ -37,8 +37,23 @@ collections:
     # This lets you create subfolders easily
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Tagovi"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        create: true  
+        options: 
+          - "racunovodstvo"
+          - "knjizenje"
+          - "izvjestaji"
+          - "financije"
+          - "skladiste"
+          - "recepcija"
+          - "gosti"
+          - "artikli"
+          - "blagajna"
+      - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 2: SKLADIŠTE ---
   - name: "skladiste"
@@ -47,9 +62,24 @@ collections:
     create: true
     nested: { depth: 5, summary: "{{title}}" }
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+     fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Tagovi"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        create: true  
+        options: 
+          - "racunovodstvo"
+          - "knjizenje"
+          - "izvjestaji"
+          - "financije"
+          - "skladiste"
+          - "recepcija"
+          - "gosti"
+          - "artikli"
+          - "blagajna"
+      - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 3: RECEPCIJA ---
   - name: "recepcija"
@@ -59,8 +89,23 @@ collections:
     nested: { depth: 5, summary: "{{title}}" }
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index",  required: false } }
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Tagovi"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        create: true  
+        options: 
+          - "racunovodstvo"
+          - "knjizenje"
+          - "izvjestaji"
+          - "financije"
+          - "skladiste"
+          - "recepcija"
+          - "gosti"
+          - "artikli"
+          - "blagajna"
+      - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 4: UGOSTITELJSTVO ---
   - name: "ugostiteljstvo"
@@ -69,6 +114,21 @@ collections:
     create: true
     nested: { depth: 5, summary: "{{title}}" }
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+     fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Tagovi"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        create: true  
+        options: 
+          - "racunovodstvo"
+          - "knjizenje"
+          - "izvjestaji"
+          - "financije"
+          - "skladiste"
+          - "recepcija"
+          - "gosti"
+          - "artikli"
+          - "blagajna"
+      - {label: "Tekst", name: "body", widget: "markdown"}

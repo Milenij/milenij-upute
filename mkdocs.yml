@@ -45,7 +45,8 @@ markdown_extensions:
       alternate_style: true
 
 plugins:
-  - search # Enables the search bar
+  - search
+  - tags
   
 
 extra:
