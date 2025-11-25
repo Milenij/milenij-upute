@@ -34,7 +34,7 @@ collections:
     folder: "docs/financije" # Files save here automatically
     create: true
     nested: { depth: 5, summary: "{{title}}" }
-    # This lets you create subfolders easily
+    
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
     fields:
       - {label: "Naslov", name: "title", widget: "string"}
