@@ -1,0 +1,148 @@
+backend:
+  name: git-gateway
+  repo: matijamurk/milenij-dokumentacija
+  branch: main
+  auth_type: pkce
+  base_url: "https://auth.decapbridge.com"
+  auth_endpoint: /sites/52bcc5a8-1773-4be2-9a89-f2f8ab332807/pkce
+  auth_token_endpoint: /sites/52bcc5a8-1773-4be2-9a89-f2f8ab332807/token
+  gateway_url: "https://gateway.decapbridge.com"
+
+
+media_folder: "docs/assets/images"
+public_folder: "../../assets/images"
+relative_links: false
+
+
+
+commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+
+# This allows you to publish instantly without approval draft steps
+publish_mode: editorial_workflow
+
+collections:
+  - name: "tags"
+    label: "Upravljaj oznakama"
+    folder: "cms-data/tags" # Hidden folder for data
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Naziv oznake", name: "title", widget: "string"}
+
+  # --- MODULE 1: FINANCIJE ---
+  - name: "financije"
+    label: "💰 Financije" # You can use emojis!
+    folder: "docs/financije" # Files save here automatically
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    
+    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
+    fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Oznake"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
+      - label: "Dodatne ključne riječi"
+        name: "keywords"
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
+        required: false
+      - {label: "Tekst", name: "body", widget: "markdown"}
+
+  # --- MODULE 2: SKLADIŠTE ---
+  - name: "skladiste"
+    label: "📦 Skladište"
+    folder: "docs/skladiste"
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
+    fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Oznake"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
+      - label: "Dodatne ključne riječi"
+        name: "keywords"
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
+        required: false
+      - {label: "Tekst", name: "body", widget: "markdown"}
+
+  # --- MODULE 3: RECEPCIJA ---
+  - name: "recepcija"
+    label: "🛎️ Recepcija"
+    folder: "docs/recepcija"
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index",  required: false } }
+    fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Oznake"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
+      - label: "Dodatne ključne riječi"
+        name: "keywords"
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
+        required: false      
+      - {label: "Tekst", name: "body", widget: "markdown"}
+
+  # --- MODULE 4: UGOSTITELJSTVO ---
+  - name: "ugostiteljstvo"
+    label: "☕ Ugostiteljstvo"
+    folder: "docs/ugostiteljstvo"
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
+    fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Oznake"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
+      - label: "Dodatne ključne riječi"
+        name: "keywords"
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
+        required: false
+      - {label: "Tekst", name: "body", widget: "markdown"}

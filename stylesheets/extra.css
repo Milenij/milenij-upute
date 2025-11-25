@@ -1,0 +1,18 @@
+/* Force ALL tags to be Blue */
+.md-typeset .md-tag {
+    background-color: #3f51b5 !important; /* Indigo Blue */
+    color: white !important;
+    opacity: 1 !important;
+    border: none;
+}
+
+/* Make them slightly lighter when hovered */
+.md-typeset a.md-tag:hover {
+    background-color: #5c6bc0 !important; 
+    color: white !important;
+}
+
+/* Ensure icons inside tags are white */
+.md-typeset .md-tag__icon {
+    color: white !important;
+}
