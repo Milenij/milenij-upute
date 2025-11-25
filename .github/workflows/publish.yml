@@ -28,13 +28,13 @@ jobs:
           MY_VERSION="2.0"
           
           # Count ONLY commits on the 'main' branch
-          COMMIT_COUNT=$(git rev-list --count origin/main)
+          BUILD_NUMBER=$GITHUB_RUN_NUMBER
           
           # Get the Hash (for search)
           SHORT_SHA=$(git rev-parse --short HEAD)
           
           # Combine them
-          FULL_VERSION="${MY_VERSION}_${COMMIT_COUNT} (${SHORT_SHA})"
+          FULL_VERSION="${MY_VERSION}_${BUILD_NUMBER} (${SHORT_SHA})"
           
           sed -i "s/GIT_HASH/$FULL_VERSION/g" mkdocs.yml
 
