@@ -86,9 +86,10 @@ collections:
         create: true
       - label: "Dodatne ključne riječi"
         name: "keywords"
-        widget: "list"  # Allows adding multiple text strings
-        default: []     # Defaults to empty
-        hint: "Upišite specifične ključne riječi samo za ovaj članak. Pritisnite Enter nakon svake." 
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
         required: false
       - {label: "Tekst", name: "body", widget: "markdown"}
 
@@ -112,9 +113,10 @@ collections:
         create: true
       - label: "Dodatne ključne riječi"
         name: "keywords"
-        widget: "list"  # Allows adding multiple text strings
-        default: []     # Defaults to empty
-        hint: "Upišite specifične ključne riječi samo za ovaj članak. Pritisnite Enter nakon svake." 
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
         required: false      
       - {label: "Tekst", name: "body", widget: "markdown"}
 
@@ -138,8 +140,9 @@ collections:
         create: true
       - label: "Dodatne ključne riječi"
         name: "keywords"
-        widget: "list"  # Allows adding multiple text strings
-        default: []     # Defaults to empty
-        hint: "Upišite specifične ključne riječi samo za ovaj članak. Pritisnite Enter nakon svake." 
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
         required: false
       - {label: "Tekst", name: "body", widget: "markdown"}

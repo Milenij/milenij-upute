@@ -1,6 +1,7 @@
 site_name: Milenij Dokumentacija
 site_url: https://matijamurk.github.io/milenij-dokumentacija/
-copyright: Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana.
+copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: GIT_HASH"
+
 
 hooks:
   - hooks.py

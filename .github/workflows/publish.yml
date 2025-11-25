@@ -21,5 +21,10 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
+      - name: Inject Commit Hash
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          sed -i "s/GIT_HASH/$SHORT_SHA/g" mkdocs.yml
+
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
