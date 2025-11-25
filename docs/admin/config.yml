@@ -28,6 +28,16 @@ commit_messages:
 publish_mode: editorial_workflow
 
 collections:
+  - name: "tags"
+    label: "Upravljaj oznakama"
+    folder: "cms-data/tags" # Hidden folder for data
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Naziv oznake", name: "title", widget: "string"}
+
   # --- MODULE 1: FINANCIJE ---
   - name: "financije"
     label: "💰 Financije" # You can use emojis!
@@ -38,7 +48,7 @@ collections:
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
     fields:
       - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Tagovi"
+      - label: "Oznake"
         name: "tags"
         widget: "select"
         multiple: true
@@ -64,21 +74,15 @@ collections:
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
     fields:
       - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Tagovi"
+      - label: "Oznake"
         name: "tags"
-        widget: "select"
-        multiple: true
-        create: true  
-        options: 
-          - "racunovodstvo"
-          - "knjizenje"
-          - "izvjestaji"
-          - "financije"
-          - "skladiste"
-          - "recepcija"
-          - "gosti"
-          - "artikli"
-          - "blagajna"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
       - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 3: RECEPCIJA ---
@@ -90,7 +94,7 @@ collections:
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index",  required: false } }
     fields:
       - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Tagovi"
+      - label: "Oznake"
         name: "tags"
         widget: "select"
         multiple: true
@@ -116,7 +120,7 @@ collections:
     meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
     fields:
       - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Tagovi"
+      - label: "Oznake"
         name: "tags"
         widget: "select"
         multiple: true
