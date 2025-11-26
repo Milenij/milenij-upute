@@ -1,5 +1,5 @@
 site_name: Milenij Upute
-site_url: https://milenijadmin.github.io/milenij-upute/
+site_url: https://milenij.github.io/milenij-upute/
 copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: GIT_HASH"
 
 
@@ -62,6 +62,6 @@ extra:
       link: https://milenij.hr
       name: Naša web stranica
     - icon: fontawesome/solid/envelope
-      link: mailto:info@milenij.hr
+      link: mailto:support@milenij.hr
       name: Kontaktirajte nas
   generator: false

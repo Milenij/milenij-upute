@@ -2,6 +2,6 @@
 title: Početna
 ---
 
-# Dobrodošli u Milenij Dokumentaciju
+# Dobrodošli u Milenij Uputes
 
 Ovdje možete pronaći sve upute za Milenij programe.
