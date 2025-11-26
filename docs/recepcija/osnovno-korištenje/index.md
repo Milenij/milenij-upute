@@ -1,10 +1,10 @@
 ---
 title: Osnovno korištenje
 tags:
-  - racunovodstvo
+  - recepcija
 keywords:
   - osnovno-koristenje
-  - "123"
+  - odjava
 ---
 # Osnovni pojmovi i konvencije
 
