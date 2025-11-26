@@ -6,7 +6,7 @@ copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verz
 hooks:
   - hooks.py
 theme:
-  name: readthedocs
+  name: material
   custom_dir: overrides
   language: hr # Change to 'hr' for Croatian if needed
   logo: assets/images/logo.png
