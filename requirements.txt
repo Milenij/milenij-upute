@@ -1,4 +1,4 @@
 mkdocs
-mkdocs-readthedocs
+mkdocs-material
 pymdown-extensions
 GitPython
