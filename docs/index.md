@@ -1,7 +1,6 @@
 ---
 title: Početna
 ---
-# Welcome to MkDocs
 
 # Dobrodošli u Milenij Dokumentaciju
 

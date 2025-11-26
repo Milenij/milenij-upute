@@ -8,13 +8,14 @@ ROOT_DIR = os.getcwd()
 DOCS_DIR = os.path.join(ROOT_DIR, 'docs')
 
 def get_page_title(filepath):
-    """Reads the 'title' from the YAML frontmatter of a file."""
+    """Robustly extracts the title from a file."""
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
+            
+            # 1. Try to read YAML Frontmatter (Between ---)
             if content.startswith('---'):
                 try:
-                    # Split only on the first two --- markers
                     parts = content.split('---', 2)
                     if len(parts) >= 3:
                         yaml_block = parts[1]
@@ -22,23 +23,32 @@ def get_page_title(filepath):
                         return data.get('title', os.path.basename(filepath))
                 except:
                     pass
+            
+            # 2. Fallback: Check for first Markdown Header (# Title)
+            lines = content.split('\n')
+            for line in lines:
+                if line.strip().startswith('# '):
+                    return line.strip().replace('# ', '').strip()
+
     except:
         pass
-    # Fallback: Clean up filename (e.g., "my-file.md" -> "My File")
-    filename = os.path.basename(filepath).replace('.md', '').replace('-', ' ').title()
-    return filename
+        
+    # 3. Last Resort: Clean Filename
+    filename = os.path.basename(filepath)
+    clean_name = filename.replace('.md', '').replace('-', ' ').replace('_', ' ').title()
+    return clean_name
 
 def on_page_markdown(markdown, page, config, files):
-    # 1. HANDLE KEYWORDS (Keep your existing keyword logic)
+    # --- LOGIC FOR KEYWORDS (Search) ---
     if 'keywords' in page.meta:
         keywords_list = page.meta['keywords']
         if isinstance(keywords_list, list):
             keywords_string = ", ".join(keywords_list)
             markdown = markdown + f"\n\n<div style='display:none'>{keywords_string}</div>"
 
-    # 2. HANDLE LATEST UPDATES (Strict Filter)
-    # Only run this if the placeholder exists in the text
-    if "" in markdown:
+    # --- LOGIC FOR LATEST UPDATES (Home Page Only) ---
+    # Only run if we are on index.md AND the placeholder exists
+    if page.file.src_path == 'index.md' and "" in markdown:
         try:
             repo = git.Repo(ROOT_DIR)
             latest_pages = []
@@ -46,19 +56,17 @@ def on_page_markdown(markdown, page, config, files):
             for file in files:
                 path = file.src_path
                 
-                # --- FILTERS: WHAT TO IGNORE ---
-                if not path.endswith('.md'): continue      # Ignore images/css/js
-                if path == 'index.md': continue            # Ignore the homepage itself
-                if 'tags.md' in path: continue             # Ignore the tags index
-                if '.pages' in path: continue              # Ignore config files
-                if 'assets' in path: continue              # Ignore assets folder
-                if 'stylesheets' in path: continue         # Ignore styles
-                # -------------------------------
-
+                # --- FILTERS ---
+                if not path.endswith('.md'): continue
+                if path == 'index.md': continue
+                if 'tags' in path: continue
+                if '.pages' in path: continue
+                if 'assets' in path: continue
+                
                 file_abs_path = os.path.join(DOCS_DIR, path)
                 
                 try:
-                    # Get last commit date
+                    # Get Date
                     commit = next(repo.iter_commits(paths=os.path.join('docs', path), max_count=1))
                     last_date = commit.committed_datetime
                     
@@ -73,21 +81,26 @@ def on_page_markdown(markdown, page, config, files):
                 except:
                     continue
 
-            # Sort by date (Newest first)
+            # Sort by Date
             latest_pages.sort(key=lambda x: x['date'], reverse=True)
 
-            # Generate Table
-            update_list = "\n## 🔄 Zadnje promjene\n\n"
+            # Build Table String
+            update_list = "\n\n## 🔄 Zadnje promjene\n\n"
             update_list += "| Članak | Datum |\n"
             update_list += "| :----- | :---- |\n"
 
-            # Show Top 10
             for item in latest_pages[:10]:
                 date_str = item['date'].strftime('%d.%m.%Y.')
-                update_list += f"| [{item['title']}]({item['url']}) | {date_str} |\n"
+                # Ensure title doesn't contain weird characters
+                safe_title = str(item['title']).replace('|', '-') 
+                update_list += f"| [{safe_title}]({item['url']}) | {date_str} |\n"
 
-            # Replace the placeholder
-            markdown = markdown.replace("", update_list)
+            # SAFETY REPLACE:
+            # 1. Replace the FIRST placeholder with the table
+            markdown = markdown.replace("", update_list, 1)
+            
+            # 2. Remove any EXTRA placeholders (if you pasted it twice by mistake)
+            markdown = markdown.replace("", "")
 
         except Exception as e:
             print(f"Error generating updates: {e}")
