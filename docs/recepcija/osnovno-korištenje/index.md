@@ -10,8 +10,8 @@ keywords:
 
 U ovom dijelu uputa ukratko ćemo objasniti pojmove, oznake, simbole i konvencije s kojima ćete se često susretati koristeći naš program.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/u5doPxsXLnc"frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/u5doPxsXLnc" frameborder="0" allowfullscreen style="border: none;"></iframe>
 
 
 ## Glavni prozor
@@ -84,6 +84,8 @@ Polja za datum su "pametna" polja koja ubrzavaju unos. Kada je polje aktivno, on
 
 Evo kako možete ubrzati rad s datumima:
 
+
+
 \=== "Prečaci na tipkovnici"
     Koristite ove tipke za brzu promjenu datuma bez pisanja:
 
@@ -92,6 +94,8 @@ Evo kako možete ubrzati rad s datumima:
 * `-` (Minus) : Smanjuje datum za jedan dan.
 * `D` (Slovo D) : Automatski upisuje **Današnji** datum.
 ```
+
+
 
 \=== "Pametni unos"
     Ne morate pisati točke ni pune godine. Program razumije skraćeni unos:
