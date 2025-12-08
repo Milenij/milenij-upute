@@ -10,9 +10,9 @@ keywords:
 
 U ovom dijelu uputa ukratko ćemo objasniti pojmove, oznake, simbole i konvencije s kojima ćete se često susretati koristeći naš program.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/u5doPxsXLnc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u5doPxsXLnc"frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
- frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Glavni prozor
 
