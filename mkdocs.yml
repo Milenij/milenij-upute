@@ -14,8 +14,7 @@ theme:
   features:
     - navigation.instant # Makes clicking links feel instant
     - navigation.instant.prefetch
-    - navigation.instant.progress
-    #- navigation.expand   # Adds the arrow icon to expand/collapse
+    - navigation.instant.progress   
     - navigation.indexes
     - navigation.top
     - navigation.path
