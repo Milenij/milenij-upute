@@ -8,5 +8,37 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+  CMS.registerEditorComponent({
+    id: "youtube",
+    label: "YouTube Video",
+    fields: [
+      {
+        name: "id",
+        label: "YouTube Video ID",
+        widget: "string",
+        hint: "The code at the end of the URL (e.g. dQw4w9WgXcQ)"
+      }
+    ],
+    pattern: /^<iframe width="560" height="315" src="https:\/\/www\.youtube\.com\/embed\/([^"]+)"/,
+    fromBlock: function(match) {
+      return {
+        id: match[1]
+      };
+    },
+    toBlock: function(obj) {
+      return (
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+        obj.id +
+        '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+      );
+    },
+    toPreview: function(obj) {
+      return (
+        '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="YouTube Video" />'
+      );
+    }
+  });
+</script>
 </body>
 </html>
