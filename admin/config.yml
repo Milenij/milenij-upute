@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: matijamurk/milenij-dokumentacija
+  repo: milenij/milenij-dokumentacija
   branch: main
   auth_type: pkce
   base_url: "https://auth.decapbridge.com"
