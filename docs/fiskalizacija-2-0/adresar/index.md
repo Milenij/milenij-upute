@@ -13,19 +13,18 @@ Nakon instalacije nove verzije aplikacije, prilikom prvog ulaska u adresar pojav
 
 !!! warning "Važno upozorenje"
     Pojavit će se poruka da je za sve upisane kupce potrebno napraviti provjeru jesu li obveznici primanja eRačuna.
-    
-    
 
 ## Automatska provjera klijenata
 
 Za inicijalno ažuriranje podataka, slijedite ove korake:
 
-1.  U adresaru kliknite mišem na crveni tekst: **Obavezna provjera svih partnera za eRačun F 2.0**.
-    
-2.  Program će proći kroz cijeli popis partnera.
-3.  Po OIB-u će potražiti koji se od upisanih klijenata nalaze u AMS sustavu i automatski ažurirati njihove podatke.
+1. U adresaru kliknite mišem na crveni tekst: **Obavezna provjera svih partnera za eRačun F 2.0**.
+2. Program će proći kroz cijeli popis partnera.
+3. Po OIB-u će potražiti koji se od upisanih klijenata nalaze u AMS sustavu i automatski ažurirati njihove podatke.
 
 Ovim postupkom obavljate inicijalno ažuriranje koje možda neće biti potpuno jer većina klijenata još nije upisana u AMS.
+
+![](../../assets/images/slika_adresar.png)
 
 ## Ručna izmjena podataka o klijentu
 
@@ -46,21 +45,22 @@ Za svakog klijenta potrebno je definirati sljedeće parametre:
 
 Ako ne znate status klijenta za eRačun:
 
-1.  Kliknite na link **eRačun F 2.0** unutar prozora za uređivanje partnera.
-    
-2.  Aplikacija će se spojiti na AMS i provjeriti status klijenta.
+1. Kliknite na link **eRačun F 2.0** unutar prozora za uređivanje partnera.
+2. Aplikacija će se spojiti na AMS i provjeriti status klijenta.
 
 !!! info "Napomena o statusu"
     U početku ćete često dobiti odgovor da se korisnik ne nalazi u sustavu AMS-a jer većina obveznika još nije prijavljena.
-    
-    Kasnije, prilikom zaključivanja svakog računa s transakcijskim plaćanjem, program će automatski provjeriti nalazi li se kupac u AMS-u prije izdavanja računa.
+
+```
+Kasnije, prilikom zaključivanja svakog računa s transakcijskim plaćanjem, program će automatski provjeriti nalazi li se kupac u AMS-u prije izdavanja računa.
+```
 
 ## Kategorije obveznika eRačuna
 
 Postoje dvije kategorije obveznika kojima je obavezno slanje eRačuna:
 
-1.  **Obavezno slanje eRačuna**
-2.  **Obavezno slanje eRačuna - javna nabava**
+1. **Obavezno slanje eRačuna**
+2. **Obavezno slanje eRačuna - javna nabava**
 
 eRačuni se šalju na isti način za obje kategorije. Međutim, za obveznike **javne nabave**, program će prilikom knjiženja ponuditi upis dodatnih podataka koje naručitelj traži, kao što su broj narudžbenice, vrsta poslovne jedinice, pretinac ili broj ugovora.
 
