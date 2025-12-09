@@ -40,8 +40,8 @@ collections:
 
   # --- MODULE 1: Fiskalizacija ---
   - name: "Fiskalizacija"
-    label: "Fiskalizacija 2.0." # You can use emojis!
-    folder: "docs/fiskalizacija-2-0" # Files save here automatically
+    label: "Fiskalizacija 2.0" # You can use emojis!
+    folder: "docs/fiskalizacija-2.0" # Files save here automatically
     create: true
     nested: { depth: 5, summary: "{{title}}" }
     
