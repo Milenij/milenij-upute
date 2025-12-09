@@ -24,7 +24,7 @@ Za inicijalno ažuriranje podataka, slijedite ove korake:
 
 Ovim postupkom obavljate inicijalno ažuriranje koje možda neće biti potpuno jer većina klijenata još nije upisana u AMS.
 
-![](../../assets/images/slika_adresar.png)
+![]()
 
 ## Ručna izmjena podataka o klijentu
 
