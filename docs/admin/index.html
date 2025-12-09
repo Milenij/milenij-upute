@@ -45,6 +45,68 @@
       );
     }
   });
+  CMS.registerEditorComponent({
+    id: "sized_image",
+    label: "Image (Resizable)",
+    fields: [
+      {
+        name: "image",
+        label: "Image",
+        widget: "image"
+      },
+      {
+        name: "alt",
+        label: "Alt Text (Description)",
+        widget: "string"
+      },
+      {
+        name: "width",
+        label: "Width (in pixels)",
+        widget: "number",
+        default: 300,
+        hint: "Example: 300 (Do not type 'px', just the number)"
+      },
+      {
+        name: "align",
+        label: "Alignment",
+        widget: "select",
+        options: ["left", "center", "right"],
+        default: "left"
+      }
+    ],
+    // Regex to find this pattern in existing files
+    pattern: /^!\[(.*)\]\((.*)\)\{: width="(\d+)"( .*)?\}$/,
+    
+    fromBlock: function(match) {
+      return {
+        alt: match[1],
+        image: match[2],
+        width: match[3],
+        align: match[4] && match[4].includes('center') ? 'center' : (match[4] && match[4].includes('right') ? 'right' : 'left')
+      };
+    },
+    
+    toBlock: function(obj) {
+      // Logic for alignment classes
+      let alignClass = "";
+      if (obj.align === "center") alignClass = ' style="display: block; margin: 0 auto;"';
+      if (obj.align === "right") alignClass = ' align="right"';
+
+      // Returns Markdown with Attribute List: ![Alt](url){: width="300" }
+      // Note: We are using a mix of Attribute List for width and HTML style for alignment for best compatibility
+      return `![${obj.alt}](${obj.image}){: width="${obj.width}"${alignClass} }`;
+    },
+    
+    toPreview: function(obj) {
+      let style = "";
+      if (obj.align === "center") style = "display: block; margin: 0 auto;";
+      if (obj.align === "right") style = "float: right; margin-left: 10px;";
+      
+      return (
+        `<img src="${obj.image}" alt="${obj.alt}" width="${obj.width}" style="${style}" />`
+      );
+    }
+  });
 </script>
 </body>
 </html>
