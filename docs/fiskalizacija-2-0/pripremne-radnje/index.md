@@ -1,5 +1,5 @@
 ---
-title: Pripremne radnje 123
+title: Pripremne radnje
 tags:
   - fiskalizacija 2.0.
 ---
