@@ -588,51 +588,93 @@
 
   <h1>Pripremne radnje</h1>
 
-<p># Pripreme za Fiskalizaciju 2.0 u aplikaciji iSustav</p>
-<p>U izborniku **Matični -&gt; Adresar kupaca, dobavljača** upisuju se kupci i dobavljači kojima izdajete fakture i od kojih kupujete robu.</p>
-<p>Nakon instalacije nove verzije aplikacije, prilikom prvog ulaska u adresar pojavit će se važno upozorenje. Zbog Fiskalizacije 2.0, potrebno je provjeriti jesu li upisani klijenti prijavljeni u AMS sustav.</p>
+<p># PRIPREME ZA FISKALIZACIJU 2.0 U APLIKACIJI iSustav</p>
+<p>[cite_start]Ovaj dokument opisuje promjene i potrebne radnje u modulu **Adresar kupaca, dobavljača** unutar aplikacije iSustav[cite: 1, 2]. [cite_start]Do sada ste na izborniku `Matični -&gt; Adresar kupaca, dobavljača` upisivali partnere s kojima poslujete[cite: 3].</p>
+<p>## 1. Inicijalna automatska provjera</p>
+<p>[cite_start]Nakon instalacije nove verzije aplikacije, prilikom prvog ulaska u adresar pojavit će se važno upozorenje[cite: 4].</p>
 <div class="admonition warning">
-<p class="admonition-title">Važno upozorenje</p>
+<p class="admonition-title">Važno upozorenje aplikacije</p>
 </div>
-<p>Pojavit će se poruka da je za sve upisane kupce potrebno napraviti provjeru jesu li obveznici primanja eRačuna.</p>
-<p>## Automatska provjera klijenata</p>
-<p>Za inicijalno ažuriranje podataka, slijedite ove korake:</p>
+<p>\    [cite_start]Zbog Fiskalizacije 2.0 za sve upisane kupce potrebno je napraviti provjeru jesu li obveznici primanja eRačuna[cite: 7].</p>
+<p>### Postupak provjere</p>
+<p>Za pokretanje provjere slijedite ove korake:</p>
 <ol>
-<li>U adresaru kliknite mišem na crveni tekst: **Obavezna provjera svih partnera za eRačun F 2.0**.   </li>
-<li>Program će proći kroz cijeli popis partnera.</li>
-<li>Po OIB-u će potražiti koji se od upisanih klijenata nalaze u AMS sustavu i automatski ažurirati njihove podatke.</li>
+<li>
+<p>[cite_start]U adresaru kliknite mišem na crveni tekst **"Obavezna provjera svih partnera za eRačun F 2.0"**[cite: 150].</p>
+</li>
+<li>
+<p>[cite_start]Program će proći kroz popis i po OIB-u potražiti partnere u AMS sustavu te ažurirati njihove podatke[cite: 158].</p>
+</li>
 </ol>
-<p>Ovim postupkom obavljate inicijalno ažuriranje koje možda neće biti potpuno jer većina klijenata još nije upisana u AMS.</p>
-<p>## Ručna izmjena podataka o klijentu</p>
-<p>Ako želite ručno ispraviti ili dopuniti podatke o klijentu, odaberite ga iz liste i pritisnite gumb **Promjeni**.</p>
-<p>S uvođenjem Fiskalizacije 2.0, podatak o poreznom statusu pojedinog klijenta mora biti točno upisan. Ovo se odnosi na korisnike koji koriste aplikaciju za knjigovodstvo.</p>
-<p>### Obavezni podaci za definiranje</p>
-<p>Za svakog klijenta potrebno je definirati sljedeće parametre:</p>
-<p>* **Tip:** Označite je li partner dobavljač, kupac ili ostalo (najbolje je označiti da je i kupac i dobavljač).</p>
-<p>* **Porezni status:** Odaberite ispravan status iz ponuđene liste (npr. Obveznik PDV-a).  </p>
-<p>* **eRačun F 2.0 status:** Odaberite odgovarajući status iz liste.</p>
-<p>### Provjera statusa u AMS-u</p>
-<p>Ako ne znate status klijenta za eRačun:</p>
-<ol>
-<li>Kliknite na link **eRačun F 2.0** unutar prozora za uređivanje partnera.    </li>
-<li>Aplikacija će se spojiti na AMS i provjeriti status klijenta.</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">Napomena o statusu</p>
+<p>```mermaid</p>
+<p>graph TD</p>
+<p>\    A[Klik na 'Obavezna provjera'] --&gt;|Slanje OIB-a| B(AMS Sustav)</p>
+<p>\    B --&gt;|Povratna informacija| C{Pronađen?}</p>
+<p>\    C --&gt;|DA| D[Ažuriranje podataka partnera]</p>
+<p>\    C --&gt;|NE| E[Bez promjene]</p>
+<p>```</p>
+<div class="admonition success">
+<p class="admonition-title">Rezultat provjere</p>
 </div>
-<p>U početku ćete često dobiti odgovor da se korisnik ne nalazi u sustavu AMS-a jer većina obveznika još nije prijavljena.</p>
-<p>Kasnije, prilikom zaključivanja svakog računa s transakcijskim plaćanjem, program će automatski provjeriti nalazi li se kupac u AMS-u prije izdavanja računa.</p>
-<p>## Kategorije obveznika eRačuna</p>
-<p>Postoje dvije kategorije obveznika kojima je obavezno slanje eRačuna:</p>
+<p>\    [cite_start]Ovim postupkom obavljate inicijalno ažuriranje podataka[cite: 159]. [cite_start]Ono ne mora biti potpuno jer većina klijenata možda još nije upisana u AMS, što je u ovoj fazi očekivano[cite: 159].</p>
+<p>---</p>
+<p>## 2. Ručno uređivanje podataka</p>
+<p>[cite_start]Ukoliko želite ručno ispraviti ili dopuniti podatke, odaberite klijenta iz liste i pritisnite gumb **Promjeni**[cite: 160].</p>
+<details class="abstract">
+<summary>Zašto je točan unos sada presudan?</summary>
+</details>
+<p>\    [cite_start]Iako je i ranije bilo moguće odrediti porezni status (u sustavu PDV-a ili ne), većina korisnika to nije ažurno pratila jer je aplikaciji bio primarno važan *vaš* pravni status za obračun poreza[cite: 161, 162].</p>
+<p>\    </p>
+<p>\    [cite_start]Međutim, **uvođenjem Fiskalizacije 2.0, podatak o poreznom statusu pojedinog klijenta mora biti točno upisan**[cite: 163]. [cite_start]Ovo se odnosi na korisnike koji koriste iSustav aplikaciju za knjigovodstvo[cite: 164].</p>
+<p>### Definiranje parametara klijenta</p>
+<p>[cite_start]Za svakog klijenta potrebno je definirati tri ključna elementa[cite: 165].</p>
+<p>\=== "1. Tip Partnera"</p>
+<p>\    [cite_start]Potrebno je definirati je li partner kupac, dobavljač ili oboje[cite: 166].</p>
+<p>\    </p>
+<p>\    * [cite_start]**Preporuka:** Najbolje je označiti da je partner i **dobavljač** i **kupac** (uključiti obje kvačice)[cite: 166].</p>
+<p>\=== "2. Porezni Status"</p>
+<p>\    [cite_start]Ovaj podatak birate iz liste ponuđenih vrijednosti[cite: 206]. Moguće opcije su:</p>
+<p>\    </p>
+<p>* Obveznik PDV-a</p>
+<p>* Obveznik po naplaćenom PDV-u</p>
+<p>* NIJE obveznik PDV-a</p>
+<p>* [cite_start]Građani, potrošači i ostali [cite: 211, 215, 216, 217]</p>
+<p>\=== "3. eRačun F 2.0 Status"</p>
+<p>\    [cite_start]Ovaj status definira obvezu slanja eRačuna[cite: 219].</p>
+<p>\    </p>
+<p>\    * [cite_start]Ako ne znate status partnera, kliknite na poveznicu **"eRačun F 2.0"** unutar forme[cite: 231].</p>
+<p>* [cite_start]Aplikacija će se spojiti na AMS i provjeriti trenutni status klijenta[cite: 242].</p>
+<p>\    !!! info "Napomena o statusu"</p>
+<p>\    [cite_start]U početku ćete često dobiti odgovor da se korisnik **ne nalazi** u sustavu AMS-a[cite: 243]. [cite_start]To je normalno jer većina obveznika još nije prijavljena i ne treba vas zabrinjavati[cite: 243, 244].</p>
+<p>---</p>
+<p>## 3. Posebne kategorije i izdavanje računa</p>
+<p>[cite_start]Prilikom budućeg rada, program će automatski provjeravati status kupca[cite: 245]. [cite_start]Prilikom zaključenja svakog računa s transakcijskim plaćanjem, program će provjeriti nalazi li se kupac u sustavu AMS-a prije izdavanja računa[cite: 245].</p>
+<p>### Vrste obveznika eRačuna</p>
+<p>[cite_start]Postoje dvije glavne kategorije obveznika[cite: 247]:</p>
 <ol>
-<li>**Obavezno slanje eRačuna**</li>
-<li>**Obavezno slanje eRačuna - javna nabava**</li>
+<li>
+<p>[cite_start]**Obavezno slanje eRačuna** [cite: 248]</p>
+</li>
+<li>
+<p>[cite_start]**Obavezno slanje eRačuna - javna nabava** [cite: 249]</p>
+</li>
 </ol>
-<p>eRačuni se šalju na isti način za obje kategorije. Međutim, za obveznike **javne nabave**, program će prilikom knjiženja ponuditi upis dodatnih podataka koje naručitelj traži, kao što su broj narudžbenice, vrsta poslovne jedinice, pretinac ili broj ugovora.</p>
 <div class="admonition tip">
-<p class="admonition-title">Inozemni partneri</p>
+<p class="admonition-title">Javna nabava</p>
 </div>
-<p>Ako poslujete s tvrtkama izvan Hrvatske, njima i dalje šaljete račune kao i do sada (poštom ili e-mailom).</p>
+<p>\    [cite_start]Iako se računi šalju na isti način, kod obveznika javne nabave program će prilikom knjiženja ponuditi unos dodatnih podataka koje naručitelj traži[cite: 250], kao što su:</p>
+<p>\    </p>
+<p>* Broj narudžbenice</p>
+<p>* Vrsta poslovne jedinice</p>
+<p>* Pretinac</p>
+<p>* [cite_start]Broj ugovora i sl. [cite: 251]</p>
+<p>### Inozemni partneri</p>
+<div class="admonition note">
+<p class="admonition-title">Poslovanje s inozemstvom</p>
+</div>
+<p>\    [cite_start]Ukoliko poslujete s tvrtkama izvan Hrvatske, njima i dalje šaljete račune kao i do sada (poštom ili mailom) – ne šalju se kroz sustav eRačuna[cite: 246].</p>
+<p>---</p>
+<p>&gt; [cite_start]**Status:** Ovim koracima završili ste ažuriranje podataka o kupcima i dobavljačima[cite: 252].</p>
 <div style='display:none'></div>
 
 
@@ -674,7 +716,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: 0.9_185 (60627ff)
+      Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: 0.9_186 (30026c4)
     </div>
   
   
