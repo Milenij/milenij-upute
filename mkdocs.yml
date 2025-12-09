@@ -12,10 +12,11 @@ theme:
   logo: assets/images/logo.png
   favicon: assets/images/logo.png
   features:
+    - navigation.tracking
+    - navigation.indexes
     - navigation.instant # Makes clicking links feel instant
     - navigation.instant.prefetch
     - navigation.instant.progress   
-    - navigation.indexes
     - navigation.top
     - navigation.path
     - search.suggest
@@ -51,6 +52,7 @@ markdown_extensions:
 plugins:
   - search
   - tags
+  - awesome-pages
   
 extra_css:
   - stylesheets/extra.css

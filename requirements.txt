@@ -2,3 +2,4 @@ mkdocs
 mkdocs-material
 pymdown-extensions
 GitPython
+mkdocs-awesome-pages-plugin
