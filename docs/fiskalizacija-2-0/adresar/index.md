@@ -1,5 +1,5 @@
 ---
-title: Pripreme za Fiskalizaciju 2.0 u aplikaciji iSustav
+title: Adresar
 tags:
   - fiskalizacija 2.0.
 keywords:
