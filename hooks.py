@@ -1,5 +1,5 @@
 import os
-import git
+import git # type: ignore
 import yaml
 from datetime import datetime
 
