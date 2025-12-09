@@ -23,7 +23,7 @@ theme:
   palette:
   - media: "(prefers-color-scheme: light)" 
     scheme: default
-    primary: blue # Change this to match your brand color
+    primary: navy blue # Change this to match your brand color
     accent: orange
     toggle:
         icon: material/weather-sunny
