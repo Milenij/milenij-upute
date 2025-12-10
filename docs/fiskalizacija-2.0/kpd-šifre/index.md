@@ -3,7 +3,7 @@ title: KPD šifre
 tags:
   - fiskalizacija 2.0
 keywords:
-  - KPD
+  - kpd-sifre
 ---
 # Priprema za Fiskalizaciju 2.0: Dodjela KPD Oznaka
 
