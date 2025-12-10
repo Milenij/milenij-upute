@@ -65,4 +65,18 @@ Nakon što ste otvorili novu godinu i **napravili inventuru u staroj godini**, m
 4.  Pritisnite dugme **Donos**.
 
 
-Program će prebaciti završna stanja svih skladišta iz
+Program će prebaciti završna stanja svih skladišta iz stare godine i u novoj godini kreirati dokumente **"Početno stanje"**.
+
+---
+
+## Povratak u prethodnu godinu
+
+Ako se želite vratiti u staru godinu (npr. da završite inventuru ili ispišete izvještaj), to možete učiniti bilo kada.
+
+1.  Izaberite izbornik: **Osnovno -> Odabir poslovne godine**.
+2.  Odaberite željenu godinu (npr. 2024).
+3.  Pritisnite **Odabir**.
+
+
+!!! tip "Kako znati da ste u staroj godini?"
+    Kada radite u staroj godini, statusna traka programa na dnu ekrana bit će istaknuta **crvenom bojom** kao upozorenje da ne upisujete nove podatke u krivu godinu.
