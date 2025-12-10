@@ -1,7 +1,5 @@
 nav:
-  - index.md
-  - fiskalizacija-2.0
-  - nova-godina
-  - ..
-hide:
-  - tags.md
+    - index.md
+    - fiskalizacija-2.0
+    - nova-godina
+    - ..

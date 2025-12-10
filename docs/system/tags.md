@@ -1,7 +1,5 @@
 ---
 title: Oznake
-hide:
-  - navigation # Optional: Hides this page from the sidebar menu
 ---
 
 # Pretraga po oznakama
