@@ -39,7 +39,7 @@ collections:
       - {label: "Naziv oznake", name: "title", widget: "string"}
 
   # --- MODULE 1: Fiskalizacija ---
-  - name: "Fiskalizacija"
+  - name: "fiskalizacija-2.0"
     label: "Fiskalizacija 2.0" # You can use emojis!
     folder: "docs/fiskalizacija-2.0" # Files save here automatically
     create: true
@@ -67,7 +67,7 @@ collections:
       - {label: "Tekst", name: "body", widget: "markdown"}
 
   # --- MODULE 1: Fiskalizacija ---
-  - name: "Nova godina"
+  - name: "nova-godina"
     label: "Nova godina" # You can use emojis!
     folder: "docs/nova-godina" # Files save here automatically
     create: true
