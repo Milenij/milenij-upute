@@ -26,10 +26,6 @@ Ovim postupkom obavljate inicijalno ažuriranje koje možda neće biti potpuno j
 
 
 
-![undefined](../../assets/images/slika_adresar.png){: width="600" style="display: block; margin: 10;" }
-
-
-
 ## Ručna izmjena podataka o klijentu
 
 Ako želite ručno ispraviti ili dopuniti podatke o klijentu, odaberite ga iz liste i pritisnite gumb **Promjeni**.
