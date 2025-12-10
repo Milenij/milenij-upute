@@ -1,3 +1,3 @@
 ---
-title: fiskalizacija 2.0.
+title: fiskalizacija 2.0
 ---
