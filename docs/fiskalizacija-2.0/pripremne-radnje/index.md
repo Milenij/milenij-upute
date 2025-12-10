@@ -1,7 +1,7 @@
 ---
 title: Pripremne radnje
 tags:
-  - fiskalizacija 2.0.
+  - fiskalizacija 2.0
 ---
 # Pripreme za Fiskalizaciju 2.0
 
