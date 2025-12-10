@@ -66,6 +66,34 @@ collections:
         required: false
       - {label: "Tekst", name: "body", widget: "markdown"}
 
+  # --- MODULE 1: Fiskalizacija ---
+  - name: "Nova godina"
+    label: "Nova godina" # You can use emojis!
+    folder: "docs/nova-godina" # Files save here automatically
+    create: true
+    nested: { depth: 5, summary: "{{title}}" }
+    
+    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
+    fields:
+      - {label: "Naslov", name: "title", widget: "string"}
+      - label: "Oznake"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"        # Connects to the collection above
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true            # Allows selecting many tags
+        create: true
+      - label: "Dodatne ključne riječi"
+        name: "keywords"
+        widget: "list"          # <--- Change to LIST
+        summary: '{{fields.keyword}}'
+        minimize_collapsed: true
+        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
+        required: false
+      - {label: "Tekst", name: "body", widget: "markdown"}
+
   # --- MODULE 2: SKLADIŠTE ---
   - name: "skladiste"
     label: "📦 Skladište"
