@@ -1,7 +1,7 @@
 ---
 title: Adresar
 tags:
-  - fiskalizacija 2.0.
+  - fiskalizacija 2.0
 keywords:
   - adresar
 ---
