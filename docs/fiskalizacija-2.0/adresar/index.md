@@ -1,7 +1,7 @@
 ---
 title: Adresar
 tags:
-  - fiskalizacija 2.0.
+  - fiskalizacija 2.0
 keywords:
   - adresar
 ---
@@ -23,10 +23,6 @@ Za inicijalno ažuriranje podataka, slijedite ove korake:
 3. Po OIB-u će potražiti koji se od upisanih klijenata nalaze u AMS sustavu i automatski ažurirati njihove podatke.
 
 Ovim postupkom obavljate inicijalno ažuriranje koje možda neće biti potpuno jer većina klijenata još nije upisana u AMS.
-
-
-
-![undefined](../../assets/images/slika_adresar.png){: width="600" style="display: block; margin: 10;" }
 
 
 
