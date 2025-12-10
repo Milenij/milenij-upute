@@ -8,7 +8,7 @@ keywords:
 ---
 # Otvaranje nove godine u programu Milenij Kasa
 
-Ukoliko organizirate doček nove godine, čim kalendarski nastupi nova **2025. godina**, program Milenij kasa (Bar ili BarTouch) automatski će onemogućiti izdavanje novih računa dok se ne otvori nova poslovna godina.
+Ukoliko organizirate doček nove godine, čim kalendarski nastupi nova **2026. godina**, program Milenij kasa (Bar ili BarTouch) automatski će onemogućiti izdavanje novih računa dok se ne otvori nova poslovna godina.
 
 Slijedite ove korake kako biste uspješno prešli u novu godinu.
 
