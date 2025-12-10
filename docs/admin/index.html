@@ -56,15 +56,15 @@
       },
       {
         name: "alt",
-        label: "Alt Text (Description)",
+        label: "Alt Text",
         widget: "string"
       },
       {
         name: "width",
-        label: "Width (in pixels)",
+        label: "Width (number only)",
         widget: "number",
         default: 300,
-        hint: "Example: 300 (Do not type 'px', just the number)"
+        hint: "Example: 300"
       },
       {
         name: "align",
@@ -74,27 +74,39 @@
         default: "left"
       }
     ],
-    // Regex to find this pattern in existing files
-    pattern: /^!\[(.*)\]\((.*)\)\{: width="(\d+)"( .*)?\}$/,
+    
+    // -----------------------------------------------------------------
+    // THE FIX IS HERE: A more robust Regex Pattern
+    // It says: Look for ![...](...){: width="..." ... }
+    // but allow for extra spaces (\s*) so it doesn't break easily.
+    // -----------------------------------------------------------------
+    pattern: /^!\[(.*?)\]\((.*?)\)\{:\s*width="(\d+)"(.*?)\s*\}$/,
     
     fromBlock: function(match) {
+      // Logic to figure out alignment based on the code we find
+      let alignValue = "left";
+      if (match[4] && match[4].includes("margin: 0 auto")) {
+        alignValue = "center";
+      } else if (match[4] && (match[4].includes("float: right") || match[4].includes('align="right"'))) {
+        alignValue = "right";
+      }
+
       return {
         alt: match[1],
         image: match[2],
         width: match[3],
-        align: match[4] && match[4].includes('center') ? 'center' : (match[4] && match[4].includes('right') ? 'right' : 'left')
+        align: alignValue
       };
     },
     
     toBlock: function(obj) {
-      // Logic for alignment classes
-      let alignClass = "";
-      if (obj.align === "center") alignClass = ' style="display: block; margin: 0 auto;"';
-      if (obj.align === "right") alignClass = ' align="right"';
+      let style = "";
+      // We use simple CSS styles inside the attribute list to handle alignment
+      if (obj.align === "center") style = ' style="display: block; margin: 0 auto;"';
+      if (obj.align === "right") style = ' style="float: right; margin-left: 10px;"';
 
-      // Returns Markdown with Attribute List: ![Alt](url){: width="300" }
-      // Note: We are using a mix of Attribute List for width and HTML style for alignment for best compatibility
-      return `![${obj.alt}](${obj.image}){: width="${obj.width}"${alignClass} }`;
+      // Returns: ![Alt](url){: width="300" style="..." }
+      return `![${obj.alt}](${obj.image}){: width="${obj.width}"${style} }`;
     },
     
     toPreview: function(obj) {
