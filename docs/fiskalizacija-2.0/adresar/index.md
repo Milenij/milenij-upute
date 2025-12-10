@@ -26,7 +26,7 @@ Ovim postupkom obavljate inicijalno ažuriranje koje možda neće biti potpuno j
 
 
 
-![undefined](../../assets/images/slika_adresar.png){: width="300" style="display: block; margin: 0 auto;" }
+![undefined](../../assets/images/slika_adresar.png){: width="600" style="display: block; margin: 10;" }
 
 
 
