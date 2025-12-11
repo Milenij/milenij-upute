@@ -51,7 +51,6 @@ Ako ne znate status klijenta za eRačun:
 !!! warning "Napomena o statusu"
     U početku ćete često dobiti odgovor da se korisnik ne nalazi u sustavu AMS-a jer većina obveznika još nije prijavljena.
 
-
 Kasnije, prilikom zaključivanja svakog računa s transakcijskim plaćanjem, program će automatski provjeriti nalazi li se kupac u AMS-u prije izdavanja računa.
 
 
