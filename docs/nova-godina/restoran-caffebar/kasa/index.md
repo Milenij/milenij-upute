@@ -4,6 +4,7 @@ tags:
   - nova-godina
 keywords:
   - caffe-bar
+  - restoran
   - kasa
 ---
 # Otvaranje nove godine u programu Milenij Kasa
