@@ -1,6 +1,6 @@
 /* Force ALL tags to be Blue */
 .md-typeset .md-tag {
-    background-color: #3f51b5 !important; /* Indigo Blue */
+    background-color: #2f61a8 !important; 
     color: white !important;
     opacity: 1 !important;
     border: none;
@@ -8,7 +8,7 @@
 
 /* Make them slightly lighter when hovered */
 .md-typeset a.md-tag:hover {
-    background-color: #5c6bc0 !important; 
+    background-color: #5279af !important; 
     color: white !important;
 }
 
@@ -16,22 +16,18 @@
 .md-typeset .md-tag__icon {
     color: white !important;
 }
-/* Fix blurry Back-to-Top button - Stronger Version */
+/* Fix blurry Back-to-Top button by disabling the Zoom animation */
 .md-top {
-    /* 1. Pre-warn the browser that this element changes */
-    will-change: transform, opacity;
+    /* Stop the button from shrinking/growing */
+    transform: none !important;
     
-    /* 2. Force Hardware Acceleration using 3D space */
-    transform: translate3d(0, 0, 0);
-    
-    /* 3. A weird trick: Applying 0px blur forces a sharp repaint */
-    filter: blur(0px);
-    
-    /* 4. Ensure the vector icon inside is drawn precisely */
-    shape-rendering: geometricPrecision;
+    /* Only animate the transparency (fade in/out) */
+    transition: opacity 0.25s, background-color 0.25s !important;
 }
 
-/* Ensure the SVG icon specifically is treated as high-res */
-.md-top svg {
-    shape-rendering: geometricPrecision;
+/* Ensure it stays hidden when not needed */
+.md-top[data-md-state="hidden"] {
+    opacity: 0 !important;
+    transform: none !important;
+    pointer-events: none; /* Make sure you can't click it when hidden */
 }
