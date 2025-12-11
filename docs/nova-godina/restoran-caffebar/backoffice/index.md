@@ -4,6 +4,7 @@ tags:
   - nova-godina
 keywords:
   - caffe-bar
+  - restoran
   - backoffice
 ---
 # Otvaranje nove godine u Milenij programu (Ugostiteljstvo)
