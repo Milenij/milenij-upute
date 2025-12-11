@@ -16,3 +16,9 @@
 .md-typeset .md-tag__icon {
     color: white !important;
 }
+.md-top {
+    /* Forces the browser to use the GPU to render this element */
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    backface-visibility: hidden;
+}
