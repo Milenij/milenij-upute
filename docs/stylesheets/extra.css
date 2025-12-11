@@ -16,9 +16,22 @@
 .md-typeset .md-tag__icon {
     color: white !important;
 }
+/* Fix blurry Back-to-Top button - Stronger Version */
 .md-top {
-    /* Forces the browser to use the GPU to render this element */
-    transform: translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
-    backface-visibility: hidden;
+    /* 1. Pre-warn the browser that this element changes */
+    will-change: transform, opacity;
+    
+    /* 2. Force Hardware Acceleration using 3D space */
+    transform: translate3d(0, 0, 0);
+    
+    /* 3. A weird trick: Applying 0px blur forces a sharp repaint */
+    filter: blur(0px);
+    
+    /* 4. Ensure the vector icon inside is drawn precisely */
+    shape-rendering: geometricPrecision;
+}
+
+/* Ensure the SVG icon specifically is treated as high-res */
+.md-top svg {
+    shape-rendering: geometricPrecision;
 }
