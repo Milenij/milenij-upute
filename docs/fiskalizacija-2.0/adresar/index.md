@@ -48,12 +48,12 @@ Ako ne znate status klijenta za eRačun:
 1. Kliknite na link **eRačun F 2.0** unutar prozora za uređivanje partnera.
 2. Aplikacija će se spojiti na AMS i provjeriti status klijenta.
 
-!!! info "Napomena o statusu"
+!!! warning "Napomena o statusu"
     U početku ćete često dobiti odgovor da se korisnik ne nalazi u sustavu AMS-a jer većina obveznika još nije prijavljena.
 
-```
+
 Kasnije, prilikom zaključivanja svakog računa s transakcijskim plaćanjem, program će automatski provjeriti nalazi li se kupac u AMS-u prije izdavanja računa.
-```
+
 
 ## Kategorije obveznika eRačuna
 
