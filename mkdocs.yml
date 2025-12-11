@@ -24,7 +24,7 @@ theme:
   palette:
   - media: "(prefers-color-scheme: light)" 
     scheme: default
-    primary: 5279af # Change this to match your brand color
+    primary: "#5279af" # Change this to match your brand color
     accent: orange
     toggle:
         icon: material/weather-sunny
@@ -33,7 +33,7 @@ theme:
   - media: "(prefers-color-scheme: dark)"
     scheme: slate   # 'slate' is the name of the dark theme
     primary: black 
-    accent: 5279af
+    accent: "#5279af"
     toggle:
       icon: material/weather-night
       name: Switch to light mode
