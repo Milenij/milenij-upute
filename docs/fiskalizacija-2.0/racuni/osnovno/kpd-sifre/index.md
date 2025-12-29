@@ -4,6 +4,8 @@ tags:
   - fiskalizacija 2.0
 keywords:
   - kpd-sifre
+  - racuni
+  - osnovno
 ---
 ## KPD oznake/šifre
 
