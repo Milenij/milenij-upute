@@ -5,6 +5,7 @@ copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verz
 
 hooks:
   - hooks/hooks.py
+  - hooks/auto_name.py
 theme:
   name: material
   custom_dir: overrides
