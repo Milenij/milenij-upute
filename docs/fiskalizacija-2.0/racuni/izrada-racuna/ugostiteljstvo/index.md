@@ -18,6 +18,7 @@ Izrada računa u ugostiteljskim objektima nema većih promjena (promjene su samo
 ### Fakture za otpremnice s kasa
 
 Otpremnice na kasi radite kao i do sada. Kod izrade fakture za otpremnice došlo je do promjena:
+
 * Novo polje za upis tipa poslovnog procesa.
 * Vizualno usklađenje s ostalim fakturama ugostiteljstva (raspored polja).
 
