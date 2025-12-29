@@ -32,16 +32,16 @@ Glavno računalo (server) mora biti **UPALJENO** na dan otvaranja. Ne smijete ga
 ### 2. Izađite iz programa na vrijeme
 Ugasite program na svim računalima **prije** vremena automatskog otvaranja (npr. u **23:45h** ili ranije).
 
-Ako to ne napravite, pojavit će se sljedeće upozorenje:
+[//]: # "Ako to ne napravite, pojavit će se sljedeće upozorenje:"
 
-*(Ovdje ubacite sliku upozorenja)*
+[//]: # "Ovdje ubacite sliku upozorenja"
 
 ### 3. Što ako niste ugasili program?
 Ako ne ugasite program na vrijeme, veza s bazom će se prekinuti i pojavit će se greška:
 
 `ISC ERROR CODE:335544741 - connection lost to database`
 
-*(Ovdje ubacite sliku greške)*
+[//]: # "Ovdje ubacite sliku greske"
 
 U tom slučaju, kliknite **U redu** i program će se ugasiti. Ovo je normalno ponašanje u ovoj situaciji.
 
@@ -51,14 +51,14 @@ Pričekajte **1 do 2 sata** (slobodno i duže) prije nego ponovno pokrenete prog
 Ako pokušate ući u program dok otvaranje još traje, dobit ćete poruku:
 > *"U tijeku je otvaranje nove poslovne godine. Pričekajte. NEMOJTE GASITI RAČUNALO!"*
 
-*(Ovdje ubacite sliku poruke)*
+[//]: # "Ovdje ubacite sliku poruke"
 
 U tom slučaju kliknite **Zatvori** i pokušajte ponovno za 10-20 minuta.
 
 ### 5. Uspješan početak rada
 Kada se uspješno prijavite u program, provjerite naziv firme u zaglavlju prozora. Ako pored naziva piše **(2026)**, to znači da je sve u redu i možete nastaviti s radom.
 
-*(Ovdje ubacite sliku programa s godinom 2026)*
+[//]: # "Ovdje ubacite sliku programa s godinom"
 
 ---
 
@@ -73,7 +73,7 @@ Putem izbornika: **Administracija -> Cjenici -> Izrada i promjena cjenika**.
 * Provjerite cijene smještaja.
 * **Ne zaboravite na turističku pristojbu!** Provjerite datume važenja i iznose.
 
-*(Ovdje ubacite sliku cjenika)*
+[//]: # "Ovdje ubacite sliku cijenika"
 
 ### 2. Provjera računa
 Preporučujemo da prije Nove godine provjerite jesu li svi računi ispravni. Naknadno storniranje računa iz stare godine u novoj godini može stvoriti probleme u knjigovodstvu i fiskalizaciji.
@@ -89,4 +89,4 @@ Kada je nova godina (2026.) otvorena, ako se želite vratiti i pogledati podatke
 3.  U prozoru koji se otvori, mišem odaberite željenu godinu (npr. 2025. godina).
 4.  Pritisnite dugme **Odabir**.
 
-*(Ovdje ubacite sliku odabira godine)*
+[//]: # "Ovdje ubacite sliku odabira godine"
