@@ -1,3 +1,5 @@
-nav:
+arrange:
     - pocetak
     - datum-racuna
+    - slanje-racuna
+    - ...
