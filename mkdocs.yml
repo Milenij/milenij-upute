@@ -4,7 +4,7 @@ copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verz
 
 
 hooks:
-  - hooks.py
+  - hooks/hooks.py
 theme:
   name: material
   custom_dir: overrides
