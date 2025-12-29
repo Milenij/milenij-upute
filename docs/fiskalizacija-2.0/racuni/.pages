@@ -1,6 +1,4 @@
 title: Računi
 nav:
-    - Osnovno:
-        - Početak
-        - Datum računa
+    - osnovno
     - ...
