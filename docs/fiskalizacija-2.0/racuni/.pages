@@ -1,6 +1,6 @@
 title: Računi
 nav:
     - osnovno:
-        - Početak: osnovno/pocetak.md
-        - Datum računa: osnovno/datum-racuna
+        - Početak: ../../osnovno/pocetak.md
+        - Datum računa: ../../osnovno/datum-racuna.md
     - ...
