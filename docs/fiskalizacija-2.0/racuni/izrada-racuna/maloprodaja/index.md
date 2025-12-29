@@ -17,6 +17,7 @@ Kod izdavanja maloprodajnih računa naoko sve ostaje isto. Promjene se nalaze 'i
 Fakture u maloprodaji možete raditi samo ako nemate instaliran i modul veleprodaje. Ako imate i modul veleprodaje (fakturiranje u veleprodaji), eRačune morate raditi tamo.
 
 Iako ste u aplikaciji za maloprodaju eRačune mogli raditi i do sada, zbog F2 je došlo do malih promjena:
+
 * Tip poslovnog procesa možete odabrati odmah.
 * eRačun će se poslati automatski nakon knjiženja.
 
