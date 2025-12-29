@@ -19,4 +19,4 @@ Međutim, ne trebate brinuti, ako ste koju KPD šifru i preskočili, program će
 
 !!! info "Želite znati više?"
     Za više informacija o KPD šiframa kliknite [ovdje]   
-(https://upute.milenij.eu/fiskalizacija-2.0/kpd-sifre/)
+(https://upute.milenij.eu/fiskalizacija-2.0/kpd-sifre/).
