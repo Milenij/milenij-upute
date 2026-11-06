@@ -1,50 +1,53 @@
+"""MkDocs hook: create a `.pages` file for every folder whose index.md has a title.
+
+The awesome-pages plugin reads `.pages` to name folders in the navigation, so
+articles created through the CMS get a proper section title automatically.
+Existing `.pages` files are never overwritten.
+"""
+import logging
 import os
-import yaml # pip install pyyaml
 
-# 1. Get the folder where THIS script lives (e.g., .../my-project/hooks)
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+import yaml
 
-# 2. Go up one level to the Project Root (e.g., .../my-project)
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+log = logging.getLogger("mkdocs.hooks.auto_name")
 
-# 3. Find the docs folder from the root
-DOCS_DIR = os.path.join(PROJECT_ROOT, "docs")
 
-print(f"--- 🚀 Script Started ---")
-print(f"📍 Script location: {SCRIPT_DIR}")
-print(f"🏠 Project Root detected: {PROJECT_ROOT}")
-print(f"🔎 Scanning Docs Directory: {DOCS_DIR}")
+def _read_title(index_path):
+    with open(index_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    if not content.startswith("---"):
+        return None
+    parts = content.split("---", 2)
+    if len(parts) < 3:
+        return None
+    frontmatter = yaml.safe_load(parts[1]) or {}
+    return frontmatter.get("title")
 
-if not os.path.exists(DOCS_DIR):
-    print(f"❌ ERROR: Still cannot find docs folder at: {DOCS_DIR}")
-    exit()
 
-files_found = 0
+def on_pre_build(config):
+    docs_dir = config["docs_dir"]
+    created = 0
 
-for root, dirs, files in os.walk(DOCS_DIR):
-    if "index.md" in files:
-        full_index_path = os.path.join(root, "index.md")
-        
+    for root, _dirs, files in os.walk(docs_dir):
+        if "index.md" not in files:
+            continue
+        pages_path = os.path.join(root, ".pages")
+        if os.path.exists(pages_path):
+            continue
+
+        index_path = os.path.join(root, "index.md")
         try:
-            with open(full_index_path, "r", encoding="utf-8") as f:
-                content = f.read()
-                parts = content.split("---")
-                if len(parts) >= 3:
-                    frontmatter = yaml.safe_load(parts[1])
-                    title = frontmatter.get("title")
-                    
-                    if title:
-                        pages_path = os.path.join(root, ".pages")
-                        if not os.path.exists(pages_path):
-                            with open(pages_path, "w", encoding="utf-8") as p:
-                                p.write(f"title: {title}\n")
-                            print(f"   ✅ Created .pages for: {os.path.basename(root)} -> '{title}'")
-                            files_found += 1
-                        else:
-                            # Optional: Uncomment below to see what is skipped
-                            # print(f"   ⚠️  Skipped {root} (.pages exists)")
-                            pass
+            title = _read_title(index_path)
         except Exception as e:
-            print(f"   ❌ Error reading {full_index_path}: {e}")
+            log.warning("Could not read %s: %s", index_path, e)
+            continue
+        if not title:
+            continue
 
-print(f"\n--- 🏁 Finished. Created {files_found} new .pages files. ---")
+        with open(pages_path, "w", encoding="utf-8") as p:
+            p.write(f"title: {title}\n")
+        log.info("Created .pages for %s -> '%s'", os.path.relpath(root, docs_dir), title)
+        created += 1
+
+    if created:
+        log.info("auto_name: created %d new .pages file(s)", created)

@@ -8,29 +8,28 @@ backend:
   auth_token_endpoint: /sites/52bcc5a8-1773-4be2-9a89-f2f8ab332807/token
   gateway_url: "https://gateway.decapbridge.com"
 
-
+# Uploaded images are stored in docs/assets/images and linked site-absolute,
+# so the link works no matter how deep the article's folder is.
 media_folder: "docs/assets/images"
-public_folder: "../../assets/images"
+public_folder: "/assets/images"
 relative_links: false
 
-
-
 commit_messages:
-    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+  create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+  update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+  delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+  uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+  deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+  openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
-
-# This allows you to publish instantly without approval draft steps
+# Changes are saved as drafts (a cms/... pull request) and go live only once
+# they are published/approved in the CMS workflow.
 publish_mode: editorial_workflow
 
 collections:
   - name: "tags"
     label: "Upravljaj oznakama"
-    folder: "cms-data/tags" # Hidden folder for data
+    folder: "cms-data/tags" # Tag list for the "Oznake" field; not part of the site
     create: true
     slug: "{{slug}}"
     editor:
@@ -38,139 +37,50 @@ collections:
     fields:
       - {label: "Naziv oznake", name: "title", widget: "string"}
 
-  # --- MODULE 1: Fiskalizacija ---
+  # --- Article sections ---
+  # Each section is a folder under docs/. To add a new section:
+  #   1. copy one block below and change name, label and folder,
+  #   2. add the folder name to the nav list in docs/.pages.
+
   - name: "fiskalizacija-2.0"
-    label: "Fiskalizacija 2.0" # You can use emojis!
-    folder: "docs/fiskalizacija-2.0" # Files save here automatically
+    label: "Fiskalizacija 2.0"
+    folder: "docs/fiskalizacija-2.0"
     create: true
-    nested: { depth: 5, summary: "{{title}}" }
-    
-    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-    fields:
+    nested: &nested { depth: 5, summary: "{{title}}" }
+    meta: &meta { path: { widget: string, label: "Subfolder", index: true, index_file: "index", required: false } }
+    # Shared article fields, reused by every section via *article_fields
+    fields: &article_fields
       - {label: "Naslov", name: "title", widget: "string"}
       - label: "Oznake"
         name: "tags"
         widget: "relation"
-        collection: "tags"        # Connects to the collection above
+        collection: "tags"
         search_fields: ["title"]
         value_field: "title"
         display_fields: ["title"]
-        multiple: true            # Allows selecting many tags
+        multiple: true
         create: true
       - label: "Dodatne ključne riječi"
         name: "keywords"
-        widget: "list"          # <--- Change to LIST
-        summary: '{{fields.keyword}}'
+        widget: "list"
+        summary: "{{fields.keyword}}"
         minimize_collapsed: true
-        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
+        hint: "Upišite specifične ključne riječi samo za ovaj članak."
         required: false
       - {label: "Tekst", name: "body", widget: "markdown"}
 
-  # --- MODULE 1: Fiskalizacija ---
   - name: "nova-godina"
-    label: "Nova godina" # You can use emojis!
-    folder: "docs/nova-godina" # Files save here automatically
+    label: "Nova godina"
+    folder: "docs/nova-godina"
     create: true
-    nested: { depth: 5, summary: "{{title}}" }
-    
-    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-    fields:
-      - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Oznake"
-        name: "tags"
-        widget: "relation"
-        collection: "tags"        # Connects to the collection above
-        search_fields: ["title"]
-        value_field: "title"
-        display_fields: ["title"]
-        multiple: true            # Allows selecting many tags
-        create: true
-      - label: "Dodatne ključne riječi"
-        name: "keywords"
-        widget: "list"          # <--- Change to LIST
-        summary: '{{fields.keyword}}'
-        minimize_collapsed: true
-        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
-        required: false
-      - {label: "Tekst", name: "body", widget: "markdown"}
+    nested: *nested
+    meta: *meta
+    fields: *article_fields
 
-  # --- MODULE 2: SKLADIŠTE ---
-  - name: "skladiste"
-    label: "📦 Skladište"
-    folder: "docs/skladiste"
+  - name: "sidrene-cijene"
+    label: "Sidrene (Bazne) Cijene"
+    folder: "docs/sidrene-cijene"
     create: true
-    nested: { depth: 5, summary: "{{title}}" }
-    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-    fields:
-      - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Oznake"
-        name: "tags"
-        widget: "relation"
-        collection: "tags"        # Connects to the collection above
-        search_fields: ["title"]
-        value_field: "title"
-        display_fields: ["title"]
-        multiple: true            # Allows selecting many tags
-        create: true
-      - label: "Dodatne ključne riječi"
-        name: "keywords"
-        widget: "list"          # <--- Change to LIST
-        summary: '{{fields.keyword}}'
-        minimize_collapsed: true
-        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
-        required: false
-      - {label: "Tekst", name: "body", widget: "markdown"}
-
-  # --- MODULE 3: RECEPCIJA ---
-  - name: "recepcija"
-    label: "🛎️ Recepcija"
-    folder: "docs/recepcija"
-    create: true
-    nested: { depth: 5, summary: "{{title}}" }
-    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index",  required: false } }
-    fields:
-      - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Oznake"
-        name: "tags"
-        widget: "relation"
-        collection: "tags"        # Connects to the collection above
-        search_fields: ["title"]
-        value_field: "title"
-        display_fields: ["title"]
-        multiple: true            # Allows selecting many tags
-        create: true
-      - label: "Dodatne ključne riječi"
-        name: "keywords"
-        widget: "list"          # <--- Change to LIST
-        summary: '{{fields.keyword}}'
-        minimize_collapsed: true
-        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
-        required: false      
-      - {label: "Tekst", name: "body", widget: "markdown"}
-
-  # --- MODULE 4: UGOSTITELJSTVO ---
-  - name: "ugostiteljstvo"
-    label: "☕ Ugostiteljstvo"
-    folder: "docs/ugostiteljstvo"
-    create: true
-    nested: { depth: 5, summary: "{{title}}" }
-    meta: { path: { widget: string, label: 'Subfolder', index: true, index_file: "index", required: false } }
-    fields:
-      - {label: "Naslov", name: "title", widget: "string"}
-      - label: "Oznake"
-        name: "tags"
-        widget: "relation"
-        collection: "tags"        # Connects to the collection above
-        search_fields: ["title"]
-        value_field: "title"
-        display_fields: ["title"]
-        multiple: true            # Allows selecting many tags
-        create: true
-      - label: "Dodatne ključne riječi"
-        name: "keywords"
-        widget: "list"          # <--- Change to LIST
-        summary: '{{fields.keyword}}'
-        minimize_collapsed: true
-        hint: "Upišite specifične ključne riječi samo za ovaj članak." 
-        required: false
-      - {label: "Tekst", name: "body", widget: "markdown"}
+    nested: *nested
+    meta: *meta
+    fields: *article_fields

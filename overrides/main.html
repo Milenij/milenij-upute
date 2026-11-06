@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  
+
+  {# Show the article's extra keywords as grey badges above the content (styled in stylesheets/extra.css) #}
   {% if page.meta.keywords %}
-    <nav class="md-tags" style="margin-bottom: 1rem;">
-      
+    <nav class="md-tags md-keywords">
       {% for keyword in page.meta.keywords %}
-        <span class="md-tag" style="background-color: #535353 !important; color: #eee!; border: 1px solid #ddd;">
-          {{ keyword }}
-        </span>
+        <span class="md-tag md-keyword">{{ keyword }}</span>
       {% endfor %}
     </nav>
   {% endif %}

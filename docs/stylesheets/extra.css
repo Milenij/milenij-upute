@@ -16,6 +16,18 @@
 .md-typeset .md-tag__icon {
     color: white !important;
 }
+
+/* Keyword badges (overrides/main.html): grey, so they read differently from the blue tags */
+.md-typeset .md-tags.md-keywords {
+    margin-bottom: 1rem;
+}
+
+.md-typeset .md-tag.md-keyword {
+    background-color: #535353 !important;
+    color: #eee !important;
+    border: 1px solid #ddd;
+}
+
 /* Fix blurry Back-to-Top button by disabling the Zoom animation */
 .md-top {
     /* Stop the button from shrinking/growing */
