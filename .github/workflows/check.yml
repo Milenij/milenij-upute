@@ -1,0 +1,30 @@
+name: check-site
+# Builds the site for every pull request (including the CMS's cms/... PRs),
+# so broken links, missing images or bad front matter are caught before merging.
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the home page's "latest changes" table reads git history
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build (strict)
+        run: mkdocs build --strict

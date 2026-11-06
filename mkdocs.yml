@@ -1,5 +1,6 @@
 site_name: Milenij Upute
-site_url: http://help.milenij.hr
+site_url: https://upute.milenij.eu/
+dev_addr: 127.0.0.1:8001 # local `mkdocs serve` port (8000 is used by something else)
 copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: GIT_HASH"
 
 
@@ -9,7 +10,7 @@ hooks:
 theme:
   name: material
   custom_dir: overrides
-  language: hr # Change to 'hr' for Croatian if needed
+  language: hr
   logo: assets/images/logo.png
   favicon: assets/images/logo.png
   features:
@@ -50,17 +51,38 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
+  - md_in_html # Markdown inside HTML blocks (home page cards)
+  - pymdownx.emoji: # :material-...: icons
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - abbr # hover tooltips for abbreviations
+  - pymdownx.snippets:
+      base_path: [includes]
+      auto_append: [abbreviations.md] # glossary added to every page
+      check_paths: true
 
 plugins:
   - search
-  - tags:
-      tags_file: system/tags.md
+  - tags # the listing is rendered where docs/system/tags.md has <!-- material/tags -->
   - awesome-pages
-  
+  - macros: # lets pages use {{ godina }} etc. (values under `extra:` below)
+      on_undefined: strict # a typo like {{ godinaa }} fails the build instead of printing nothing
+      on_error_fail: true
+  - git-revision-date-localized: # "Zadnje ažuriranje" date at the bottom of each page
+      type: custom
+      custom_format: "%d.%m.%Y."
+      fallback_to_build_date: true # pages not committed yet
+      exclude:
+        - index.md
+        - system/*
+
 extra_css:
   - stylesheets/extra.css
 
 extra:
+  # The "new year" the Nova godina articles are about. Change this once a year;
+  # pages use {{ godina }} and {{ godina - 1 }} (previous year).
+  godina: 2027
   social:
     - icon: fontawesome/solid/globe
       link: https://milenij.hr

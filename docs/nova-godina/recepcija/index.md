@@ -5,9 +5,9 @@ tags:
 keywords:
   - recepcija
 ---
-# Rad recepcije na Novu godinu (2026.)
+# Rad recepcije na Novu godinu ({{ godina }}.)
 
-U 2026. godini, prvog radnog dana potrebno je otvoriti novu poslovnu godinu u programu. **Otvaranje nove poslovne godine program radi automatski.**
+U {{ godina }}. godini, prvog radnog dana potrebno je otvoriti novu poslovnu godinu u programu. **Otvaranje nove poslovne godine program radi automatski.**
 
 Vaš zadatak je samo slijediti ove upute kako bi se osiguralo da proces prođe bez problema.
 
@@ -56,7 +56,7 @@ Ako pokušate ući u program dok otvaranje još traje, dobit ćete poruku:
 U tom slučaju kliknite **Zatvori** i pokušajte ponovno za 10-20 minuta.
 
 ### 5. Uspješan početak rada
-Kada se uspješno prijavite u program, provjerite naziv firme u zaglavlju prozora. Ako pored naziva piše **(2026)**, to znači da je sve u redu i možete nastaviti s radom.
+Kada se uspješno prijavite u program, provjerite naziv firme u zaglavlju prozora. Ako pored naziva piše **({{ godina }})**, to znači da je sve u redu i možete nastaviti s radom.
 
 [//]: # "Ovdje ubacite sliku programa s godinom"
 
@@ -82,11 +82,11 @@ Preporučujemo da prije Nove godine provjerite jesu li svi računi ispravni. Nak
 
 ## Kako pregledati podatke iz stare godine?
 
-Kada je nova godina (2026.) otvorena, ako se želite vratiti i pogledati podatke iz starih godina (2025., 2024. itd.), slijedite ove korake:
+Kada je nova godina ({{ godina }}.) otvorena, ako se želite vratiti i pogledati podatke iz starih godina ({{ godina - 1 }}., {{ godina - 2 }}. itd.), slijedite ove korake:
 
 1.  Zatvorite sve aktivne prozore u programu.
 2.  Odaberite opciju **Osnovno -> Odabir poslovne godine**.
-3.  U prozoru koji se otvori, mišem odaberite željenu godinu (npr. 2025. godina).
+3.  U prozoru koji se otvori, mišem odaberite željenu godinu (npr. {{ godina - 1 }}. godina).
 4.  Pritisnite dugme **Odabir**.
 
 [//]: # "Ovdje ubacite sliku odabira godine"
