@@ -1,7 +1,12 @@
 site_name: Milenij Upute
 site_url: https://upute.milenij.eu/
+site_description: Upute za rad u Milenij programima # search engines and share cards
 dev_addr: 127.0.0.1:8001 # local `mkdocs serve` port (8000 is used by something else)
 copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: GIT_HASH"
+# ✏️ button on each article that opens its file in GitHub's editor. Hidden from visitors:
+# it only shows in a browser that opened a page with ?urednik once (javascripts/urednik.js).
+# No repo_url on purpose, so the header doesn't show a GitHub link to everyone.
+edit_uri: https://github.com/Milenij/milenij-upute/edit/main/docs/
 
 
 hooks:
@@ -21,8 +26,12 @@ theme:
     - navigation.instant.progress   
     - navigation.top
     - navigation.path
+    - navigation.footer # "Prethodno / Sljedeće" buttons at the bottom of each article
+    - announce.dismiss # readers can close the top bar (extra.obavijest below)
     - search.suggest
-    - search.highlight 
+    - search.highlight
+    - content.tooltips # styled, instant tooltips (glossary abbreviations, link titles)
+    - content.action.edit # ✏️ edit button (see edit_uri above; hidden from visitors)
   palette:
   - media: "(prefers-color-scheme: light)" 
     scheme: default
@@ -75,14 +84,44 @@ plugins:
       exclude:
         - index.md
         - system/*
+  - glightbox: # click an image to open it full-size (zoom, drag, next/previous)
+      # Only options Zensical also supports, so a later migration needs no changes
+      auto_caption: true # the image's alt text becomes the caption
+      skip_classes: [no-zoom] # opt out per image: ![...](...){: .no-zoom }
+  - privacy: # fonts and scripts (Google Fonts, Mermaid) are downloaded at build time and
+      # served from our own site, so visitors' browsers never contact Google & co. (GDPR)
+      # Only on GitHub: on Windows it can't create the links it needs and the strict
+      # build fails, so local builds load fonts from Google as before.
+      enabled: !ENV [CI, false]
+  - social: # preview card (logo + title) when a page link is shared in email, Viber, WhatsApp...
+      # Needs the Cairo graphics library, which Windows doesn't have, so cards are
+      # only generated on GitHub (CI=true there); local builds skip them.
+      enabled: !ENV [CI, false]
+      cards_layout_options:
+        background_color: "#5279af"
+        color: "#ffffff"
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/urednik.js # shows the ✏️ edit button in your browser only (open a page with ?urednik)
+  - javascripts/snake.js # easter egg: type "snake" or "zmija" in search (delete to remove)
 
 extra:
   # The "new year" the Nova godina articles are about. Change this once a year;
   # pages use {{ godina }} and {{ godina - 1 }} (previous year).
   godina: 2027
+  # Bar at the top of every page. To hide it, leave tekst empty: tekst: ""
+  # {godina} is replaced with the year above. Readers can close it (it comes back
+  # when the text changes).
+  obavijest:
+    tekst: "Nova godina {godina}: pogledajte upute za otvaranje nove poslovne godine"
+    link: nova-godina/recepcija/
+  # "Niste pronašli odgovor?" box at the end of every article
+  podrska:
+    email: support@milenij.hr
+    telefon: "" # e.g. "01 234 5678"; shown only when filled in
   social:
     - icon: fontawesome/solid/globe
       link: https://milenij.hr

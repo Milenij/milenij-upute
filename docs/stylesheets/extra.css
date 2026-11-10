@@ -17,6 +17,179 @@
     color: white !important;
 }
 
+/* Tooltips (glossary abbreviations, link titles): Material's default is tiny bold
+   text meant for one-word labels; our definitions are sentences, so make them readable. */
+[role="tooltip"] > .md-tooltip2__inner {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Mermaid diagrams: Milenij blue boxes in both themes (Material's default is the
+   accent colour, which is orange in light mode) */
+[data-md-color-scheme] {
+    --md-mermaid-node-bg-color: rgba(82, 121, 175, 0.12);
+    --md-mermaid-node-fg-color: #5279af;
+}
+
+/* Rounded corners and a soft shadow on images in articles (screenshots).
+   Shadow: 0 right/left, 2px down, 10px blur, in grey #535353 at 35% strength. */
+.md-typeset img {
+    border-radius: .6rem;
+    box-shadow: 0 2px 10px rgba(83, 83, 83, 0.35);
+}
+
+/* Faint "glass table" reflection under article images: the bottom 40px of the image,
+   mirrored at 15% strength and fading out. Chrome, Edge and Safari support it; Firefox
+   doesn't, so there the images simply have no reflection (and no extra space).
+   Opt out per image with { .no-reflect }. */
+@supports (-webkit-box-reflect: below) {
+    .md-typeset img:not(.no-reflect) {
+        -webkit-box-reflect: below 3px
+            linear-gradient(transparent calc(100% - 40px), rgba(255, 255, 255, 0.15));
+        margin-bottom: 2.4rem; /* room for the reflection, which takes no space of its own */
+    }
+}
+
+
+/* Images that open in the lightbox (glightbox) show a magnifier cursor */
+.md-typeset a.glightbox img {
+    cursor: zoom-in;
+}
+
+/* ✏️ edit button: hidden from visitors, shown only in a browser unlocked with ?urednik
+   (javascripts/urednik.js) */
+html:not([data-urednik]) .md-content__button[rel="edit"] {
+    display: none;
+}
+
+/* Home page "Zadnje promjene" list (built by hooks/hooks.py) */
+.md-typeset .changes {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.4rem;
+    overflow: hidden;
+}
+
+.md-typeset .changes__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem 0.8rem;
+    padding: 0.6rem 0.8rem;
+    color: var(--md-default-fg-color);
+    transition: background-color 125ms;
+}
+
+.md-typeset .changes__row + .changes__row {
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .changes__row:hover,
+.md-typeset .changes__row:focus-visible {
+    color: var(--md-default-fg-color);
+    background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .changes__text {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 14rem;
+    min-width: 0;
+}
+
+.md-typeset .changes__title {
+    font-weight: 700;
+    color: var(--md-typeset-a-color);
+}
+
+.md-typeset .changes__row:hover .changes__title {
+    text-decoration: underline;
+}
+
+.md-typeset .changes__section {
+    font-size: 0.7rem;
+    color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .changes__kind {
+    padding: 0.1rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.md-typeset .changes__kind--new {
+    color: #fff;
+    background-color: #2e7d32;
+}
+
+.md-typeset .changes__kind--updated {
+    color: #fff;
+    background-color: #5279af;
+}
+
+.md-typeset .changes__date {
+    min-width: 5.2rem;
+    text-align: right;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--md-default-fg-color--light);
+    white-space: nowrap;
+}
+
+/* Phones: label and date wrap under the title, so keep them together on the left */
+@media screen and (max-width: 29.9375em) {
+    .md-typeset .changes__date {
+        min-width: 0;
+        text-align: left;
+    }
+}
+
+/* Top bar (extra.obavijest in mkdocs.yml, template in overrides/main.html) */
+.md-banner a.announce {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: inherit;
+}
+
+.md-banner a.announce:hover span {
+    text-decoration: underline;
+}
+
+.md-banner .announce svg {
+    width: 1.1em;
+    height: 1.1em;
+    flex-shrink: 0;
+    fill: currentcolor;
+}
+
+/* "Niste pronašli odgovor?" box at the end of each article (overrides/main.html) */
+.md-typeset .support {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    padding: 0.8rem 1rem;
+    border-left: 0.2rem solid #5279af;
+    border-radius: 0.2rem;
+    background-color: rgba(82, 121, 175, 0.1);
+}
+
+.md-typeset .support > svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    fill: #5279af;
+}
+
+.md-typeset .support > div {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Keyword badges (overrides/main.html): grey, so they read differently from the blue tags */
 .md-typeset .md-tags.md-keywords {
     margin-bottom: 1rem;

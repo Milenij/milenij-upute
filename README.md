@@ -26,6 +26,16 @@ Before pushing, `mkdocs build --strict` should pass — that's what the PR check
 - **Every push to `main`** is built and deployed by `.github/workflows/publish.yml`.
   The footer version is `1.0_<run number> (<commit>)`.
 
+## Quick edits from the live site (✏️ button)
+
+Every article has a ✏️ button (top right) that opens its file in GitHub's editor. It's
+hidden from visitors: open any page with `?urednik` at the end of the address once
+(e.g. `https://upute.milenij.eu/?urednik`) and that browser shows it from then on.
+`?urednik=off` hides it again. Do this once per browser/phone.
+
+This only hides the button; editing still needs write access to the GitHub repository.
+Saving in GitHub's editor commits to `main`, which publishes the site.
+
 ## Writing articles
 
 - Each article is a folder with an `index.md`. Front matter:
@@ -41,17 +51,47 @@ Before pushing, `mkdocs build --strict` should pass — that's what the PR check
   ```
 
 - Images go in `docs/assets/images/`. The CMS links them as `/assets/images/...`.
+  Every image in an article opens full-size when clicked (glightbox), with its alt text
+  as the caption — so write a short, descriptive alt text. To turn this off for one
+  image, add `{: .no-zoom }` after it.
 - Callouts: `!!! info "Naslov"`, `!!! tip`, `!!! warning` (indent the text 4 spaces).
+- Flowcharts are written as text in a ```` ```mermaid ```` code block (works in the CMS
+  too; it shows as code in the editor and as a diagram on the site). See
+  `docs/sidrene-cijene/ugostiteljstvo/index.md` for an example where each box links to
+  a section: `click A href "#heading-id"`. Keep it to about three boxes side by
+  side, so the text stays readable on phones.
 - Abbreviations get hover tooltips from `includes/abbreviations.md` —
   add a line there (`*[PDV]: Porez na dodanu vrijednost`) to explain a new one everywhere.
-- The home page "Zadnje promjene" table and the "last updated" date on each page
-  come from git history automatically.
+- Share cards (the preview shown when a link is pasted into email/Viber/WhatsApp) are
+  generated automatically on GitHub; they're skipped in local builds.
+- The home page "Zadnje promjene" list and the "last updated" date on each page
+  come from git history automatically. The list shows the 10 latest changes: each
+  with its menu section, **Novo** (the change added the article) or **Ažurirano**,
+  and the date it went live on `main` (a CMS draft counts once, when it's published).
+
+## Site-wide settings (mkdocs.yml, under `extra:`)
+
+- **`obavijest`**: the bar at the top of every page, e.g. in December
+  "Nova godina {godina}: …" with a link. To hide it, set `tekst: ""`. Readers can
+  close it; it comes back for them when the text changes.
+- **`podrska`**: the "Niste pronašli odgovor?" box at the end of every article
+  (email, and a phone number if you fill one in).
+- Search also works without č/ć/š/ž/đ ("racun" finds "račun"). This is automatic
+  (`hooks/hooks.py`), nothing to maintain.
+- On GitHub, fonts and scripts are downloaded during the build and served from our own
+  site (privacy plugin), so visitors' browsers don't contact Google. Local builds skip this.
+
+## Easter egg
+
+Typing **snake** or **zmija** into the search box opens a snake game
+(`docs/javascripts/snake.js`). To remove it, delete that file and its line under
+`extra_javascript:` in `mkdocs.yml`.
 
 ## Yearly: Nova godina
 
 The Nova godina articles don't contain hard-coded years. They use `{{ godina }}`
 (the new year) and `{{ godina - 1 }}` (the year before). Once a year, change
-`godina:` under `extra:` in `mkdocs.yml` — that updates every page.
+`godina:` under `extra:` in `mkdocs.yml` — that updates every page (and the top bar).
 
 In the CMS editor these show as `{{ godina }}`; leave them as they are.
 

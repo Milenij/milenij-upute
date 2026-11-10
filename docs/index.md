@@ -28,9 +28,9 @@ Ovdje možete pronaći sve upute za Milenij programe. Odaberite područje ili up
 
     ---
 
-    Postavljanje sidrenih cijena u cjeniku za maloprodaju i veleprodaju.
+    Postavljanje sidrenih cijena za ugostiteljstvo, wellness, maloprodaju i veleprodaju.
 
-    [:octicons-arrow-right-24: Maloprodaja](sidrene-cijene/maloprodaja/index.md)
+    [:octicons-arrow-right-24: Ugostiteljstvo](sidrene-cijene/ugostiteljstvo/index.md)
 
 </div>
 

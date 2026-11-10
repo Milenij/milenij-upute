@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
+{# Top bar on every page, set in mkdocs.yml under extra.obavijest #}
+{% block announce %}
+  {% set obavijest = config.extra.obavijest %}
+  {% if obavijest and obavijest.tekst %}
+    {% set tekst = obavijest.tekst | replace("{godina}", config.extra.godina | string) %}
+    {% if obavijest.link %}
+      <a class="announce" href="{{ base_url }}/{{ obavijest.link }}">
+        {% include ".icons/material/calendar-refresh-outline.svg" %}
+        <span>{{ tekst }}</span>
+        {% include ".icons/material/arrow-right.svg" %}
+      </a>
+    {% else %}
+      <span class="announce">{{ tekst }}</span>
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
 {% block content %}
 
   {# Show the article's extra keywords as grey badges above the content (styled in stylesheets/extra.css) #}
@@ -12,5 +29,21 @@
   {% endif %}
 
   {{ super() }}
+
+  {# "Niste pronašli odgovor?" box at the end of every article (not the home page or system pages);
+     contact details are in mkdocs.yml under extra.podrska #}
+  {% set podrska = config.extra.podrska %}
+  {% if podrska and page.file.src_uri != "index.md" and not page.file.src_uri.startswith("system/") %}
+    <aside class="support">
+      {% include ".icons/material/lifebuoy.svg" %}
+      <div>
+        <strong>Niste pronašli odgovor?</strong>
+        <span>
+          Pišite nam na <a href="mailto:{{ podrska.email }}">{{ podrska.email }}</a>
+          {%- if podrska.telefon %} ili nazovite <a href="tel:{{ podrska.telefon | replace(' ', '') }}">{{ podrska.telefon }}</a>{% endif %}.
+        </span>
+      </div>
+    </aside>
+  {% endif %}
 
 {% endblock %}

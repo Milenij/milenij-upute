@@ -23,6 +23,9 @@ jobs:
           python-version: "3.14"
           cache: pip
 
+      - name: Install Cairo (for share cards)
+        run: sudo apt-get update && sudo apt-get install -y libcairo2
+
       - name: Install Dependencies
         run: pip install -r requirements.txt
 

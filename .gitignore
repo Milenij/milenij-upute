@@ -1,5 +1,6 @@
 # Local build output (`mkdocs build` / `mkdocs serve`)
 site/
+.cache/
 
 # Python
 .venv/

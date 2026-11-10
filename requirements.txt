@@ -1,10 +1,14 @@
 # Pinned so a new upstream release can't break the deploy overnight.
 # To upgrade: bump a version, run `mkdocs build --strict` locally, then commit.
 mkdocs==1.6.1
-mkdocs-material==9.8.0
+mkdocs-material[imaging]==9.8.0
+# Share cards (social plugin); they only run on GitHub, see mkdocs.yml
+CairoSVG==2.9.1
+pillow==13.0.0
 mkdocs-awesome-pages-plugin==2.10.1
 mkdocs-macros-plugin==1.5.0
 mkdocs-git-revision-date-localized-plugin==1.6.3
+mkdocs-glightbox==0.5.3
 pymdown-extensions==12.3
 GitPython==3.2.1
 PyYAML==6.0.3
