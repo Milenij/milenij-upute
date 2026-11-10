@@ -12,6 +12,7 @@ edit_uri: https://github.com/Milenij/milenij-upute/edit/main/docs/
 hooks:
   - hooks/hooks.py
   - hooks/auto_name.py
+  - hooks/snake.py # snake easter egg: "Milenij Tim" high score (saved only from mkdocs serve)
 theme:
   name: material
   custom_dir: overrides
@@ -106,7 +107,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/urednik.js # shows the ✏️ edit button in your browser only (open a page with ?urednik)
-  - javascripts/snake.js # easter egg: type "snake" or "zmija" in search (delete to remove)
+  - javascripts/snake.js # easter egg: type "snake" or "zmija" in search (README: how to remove)
 
 extra:
   # The "new year" the Nova godina articles are about. Change this once a year;

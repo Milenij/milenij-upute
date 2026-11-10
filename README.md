@@ -84,8 +84,30 @@ Saving in GitHub's editor commits to `main`, which publishes the site.
 ## Easter egg
 
 Typing **snake** or **zmija** into the search box opens a snake game
-(`docs/javascripts/snake.js`). To remove it, delete that file and its line under
-`extra_javascript:` in `mkdocs.yml`.
+(`docs/javascripts/snake.js`).
+
+**Milenij Tim record:** the game shows the team's record (score and date, no names,
+since this repository is public) to everyone. It's kept in `snake-rekord.json` (top of
+the repository). A new record is saved only while playing on `mkdocs serve` on your own
+computer: beat it and it's written to `snake-rekord.json` automatically. Commit and push
+that file to show the new record on the live site (`git pull` first, in case someone else
+beat it in the meantime). The live site itself can't save anything, but when a visitor
+beats the team record there they get confetti and *"Bolji ste od Milenij tima!"*.
+
+**Playing together on the office network:** one computer runs the site for everyone:
+
+```bash
+mkdocs serve -a 0.0.0.0:8001
+```
+
+The others open `http://<that computer's IP>:8001` (find the IPv4 address with `ipconfig`,
+e.g. `http://192.168.1.103:8001`). Records they set are saved on the computer running
+`mkdocs serve`. If nobody can connect, Windows Firewall is blocking it: when Windows asks,
+allow Python, or set that computer's network to *Private* (Settings › Network & internet).
+Stop it with Ctrl+C when you're done. While it runs, anyone on the network can open the site.
+
+To remove the game: delete `docs/javascripts/snake.js`, `hooks/snake.py` and
+`snake-rekord.json`, and their lines under `extra_javascript:` and `hooks:` in `mkdocs.yml`.
 
 ## Yearly: Nova godina
 
