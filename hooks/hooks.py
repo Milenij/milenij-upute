@@ -4,7 +4,8 @@
 * replaces <!-- LATEST_UPDATES --> on the home page with a list of the
   10 most recently changed articles: section, new/updated, and the date
   the change went live (all from git history);
-* makes search work without č/ć/š/ž/đ ("racun" finds "račun").
+* makes search work without č/ć/š/ž/đ ("racun" finds "račun");
+* gives each lightbox image link its address (see "Image lightbox" below).
 """
 import json
 import logging
@@ -140,6 +141,20 @@ def on_page_markdown(markdown, page, config, files):
         markdown = markdown.replace(UPDATES_PLACEHOLDER, '')
 
     return markdown
+
+
+# --- Image lightbox ------------------------------------------------------------
+# With the privacy plugin on (GitHub builds), mkdocs-glightbox 0.5.3 leaves the href
+# out of its <a class="glightbox"> links and fills it in with a script that only runs
+# on the first full page load. Pages reached through the menu (instant navigation)
+# never get it, so the lightbox opens and spins forever. Write the href in here.
+
+_GLIGHTBOX_LINK = re.compile(
+    r'<a class="glightbox"(?![^>]*\shref=)([^>]*)>(\s*<img\b[^>]*?\s(?:data-src|src)="([^"]+)")')
+
+
+def on_post_page(output, page, config):
+    return _GLIGHTBOX_LINK.sub(r'<a class="glightbox" href="\3"\1>\2', output)
 
 
 # --- Search without Croatian letters -------------------------------------------
