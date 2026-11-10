@@ -1,10 +1,14 @@
 /*
  * Easter egg: type "snake" or "zmija" into the search box to play a snake game.
  *
- * Everything lives in this one file (game, styles, controls). To remove it, delete
- * this file and the "javascripts/snake.js" line under extra_javascript in mkdocs.yml.
+ * The game, styles and controls are all in this file; the team record is saved by
+ * hooks/snake.py. To remove it all, see "Easter egg" in README.md.
  *
  * Controls: arrow keys or WASD, swipe on phones. Space = pause / new game, Esc = close.
+ *
+ * "Milenij Tim" record: shown to everyone (read from assets/snake-rekord.json). A new one
+ * can only be saved while playing on a local `mkdocs serve`; hooks/snake.py writes it to
+ * snake-rekord.json in the repository, and it goes live once that file is committed.
  */
 (function () {
   "use strict";
@@ -17,8 +21,17 @@
   var MIN_SPEED = 70;
   var BEST_KEY = "milenij-snake-best";
 
-  var overlay, canvas, ctx, scoreEl, bestEl, msgEl;
+  // Site root, worked out from this script's own address (…/javascripts/snake.js)
+  var BASE = (document.currentScript && document.currentScript.src || "")
+    .replace(/javascripts\/snake\.js.*$/, "") || "/";
+  // Saving the team record only works on `mkdocs serve` (also over the local network);
+  // the server says so with "spremanje": true in assets/snake-rekord.json
+  var canSave = false;
+
+  var overlay, canvas, ctx, scoreEl, bestEl, msgEl, teamEl;
+  var team = { score: 0 }; // Milenij Tim record: { score, date }
   var snake, dir, queue, food, score, best, timer, speed, state; // state: ready | run | pause | over
+  var beaten; // this game has passed the Milenij Tim record
 
   /* ---------- styles ---------- */
   var css =
@@ -33,7 +46,17 @@
     ".snake-canvas{display:block;width:100%;min-width:0;max-width:100%;aspect-ratio:1;border-radius:.6rem;touch-action:none;" +
     "background:var(--md-code-bg-color)}" +
     ".snake-msg{min-height:1.4em;margin-top:10px;text-align:center;font-size:.75rem;" +
-    "color:var(--md-default-fg-color--light)}";
+    "color:var(--md-default-fg-color--light)}" +
+    ".snake-team{margin:-4px 0 10px;font-size:.75rem;color:var(--md-default-fg-color--light)}" +
+    ".snake-team b{display:inline-block;color:#5279af}" +
+    // celebration when the Milenij Tim record is beaten
+    ".snake-confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}" +
+    ".snake-beaten .snake-team b{animation:snake-pop .5s ease 3}" +
+    ".snake-beaten .snake-msg{color:#ff9100;font-weight:700;animation:snake-pop .5s ease 2}" +
+    ".snake-beaten .snake-canvas{animation:snake-glow 1.6s ease}" +
+    "@keyframes snake-pop{50%{transform:scale(1.35)}}" +
+    "@keyframes snake-glow{30%{box-shadow:0 0 0 4px #ff9100,0 0 28px #ff9100}}" +
+    "@media (prefers-reduced-motion:reduce){.snake-beaten *{animation:none!important}}";
 
   function addStyles() {
     if (document.querySelector("style[data-snake]")) return;
@@ -94,6 +117,7 @@
       '<span>Bodovi: <b class="snake-score">0</b></span>' +
       '<span>Rekord: <b class="snake-best">0</b></span>' +
       '<button class="snake-close" type="button" aria-label="Zatvori">×</button></div>' +
+      '<div class="snake-team" hidden></div>' +
       '<canvas class="snake-canvas" width="400" height="400"></canvas>' +
       '<div class="snake-msg"></div></div>';
     document.body.appendChild(overlay);
@@ -103,6 +127,8 @@
     scoreEl = overlay.querySelector(".snake-score");
     bestEl = overlay.querySelector(".snake-best");
     msgEl = overlay.querySelector(".snake-msg");
+    teamEl = overlay.querySelector(".snake-team");
+    loadTeamRecord();
 
     best = 0;
     try { best = parseInt(localStorage.getItem(BEST_KEY), 10) || 0; } catch (e) { /* storage blocked */ }
@@ -136,6 +162,8 @@
     score = 0;
     speed = START_SPEED;
     scoreEl.textContent = 0;
+    beaten = false;
+    overlay.querySelector(".snake-panel").classList.remove("snake-beaten");
     placeFood();
     state = "ready";
     msgEl.textContent = "Strelice / WASD ili povucite prstom za početak";
@@ -165,11 +193,11 @@
   function rand(n) { return Math.floor(Math.random() * n); }
 
   function turn(x, y) {
+    if (state !== "run") start(); // any direction key starts (or resumes) the game
     var last = queue.length ? queue[queue.length - 1] : dir;
     if (last.x === -x && last.y === -y) return; // no turning back into yourself
     if (last.x === x && last.y === y) return;
     if (queue.length < 3) queue.push({ x: x, y: y });
-    if (state !== "run") start();
   }
 
   function step() {
@@ -184,6 +212,7 @@
     if (head.x === food.x && head.y === food.y) {
       score++;
       scoreEl.textContent = score;
+      if (!beaten && team.score > 0 && score > team.score) celebrate();
       if (snake.length === GRID * GRID) return gameOver(true);
       placeFood();
       if (speed > MIN_SPEED) { // a little faster with every bite
@@ -207,7 +236,116 @@
     }
     draw();
     msgEl.textContent = (won ? "Pobjeda! " : "Kraj igre! ") +
+      (beaten && !canSave ? "Pobijedili ste Milenij tim, " + score + " : " + team.score + "! 🏆 " : "") +
       "Razmak ili dodir za novu igru";
+    if (canSave && score > team.score) saveTeamRecord();
+  }
+
+  /* ---------- celebration: confetti when the Milenij Tim record is beaten ---------- */
+  function celebrate() {
+    beaten = true;
+    overlay.querySelector(".snake-panel").classList.add("snake-beaten");
+    // Visitors on the public site get bragging rights; on mkdocs serve it's a new team record
+    msgEl.textContent = canSave ? "🎉 Novi rekord Milenij tima! Samo nastavite…"
+                                : "🎉 Bolji ste od Milenij tima! Samo nastavite…";
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) confetti();
+  }
+
+  function confetti() {
+    var c = document.createElement("canvas");
+    c.className = "snake-confetti";
+    overlay.appendChild(c);
+    var w = window.innerWidth, h = window.innerHeight, dpr = window.devicePixelRatio || 1;
+    c.width = w * dpr;
+    c.height = h * dpr;
+    var g = c.getContext("2d");
+    g.scale(dpr, dpr);
+
+    // Two bursts from the bottom corners of the game panel, in Milenij colours
+    var box = overlay.querySelector(".snake-panel").getBoundingClientRect();
+    var colors = ["#5279af", "#3d6299", "#8fb0dd", "#ff9100", "#ffc400", "#2e7d32", "#e91e63"];
+    var parts = [];
+    for (var i = 0; i < 160; i++) {
+      var side = i % 2 ? 1 : -1; // -1 = left corner, shooting right
+      parts.push({
+        x: side < 0 ? box.left : box.right,
+        y: box.bottom - 20,
+        vx: -side * (2 + Math.random() * 7),
+        vy: -(8 + Math.random() * 9),
+        size: 6 + Math.random() * 6,
+        rot: Math.random() * Math.PI,
+        spin: (Math.random() - 0.5) * 0.35,
+        wobble: Math.random() * 10,
+        color: colors[i % colors.length],
+        round: i % 4 === 0
+      });
+    }
+
+    var started = performance.now(), LENGTH = 3000;
+    requestAnimationFrame(function frame(now) {
+      var t = now - started;
+      if (!overlay || !c.isConnected || t > LENGTH) { c.remove(); return; }
+      g.clearRect(0, 0, w, h);
+      g.globalAlpha = t > LENGTH - 800 ? (LENGTH - t) / 800 : 1; // fade out at the end
+      parts.forEach(function (p) {
+        p.vy = Math.min(p.vy + 0.28, 6); // gravity, then flutter down slowly
+        p.vx *= 0.985;
+        p.x += p.vx + Math.sin((t / 180) + p.wobble) * 0.6;
+        p.y += p.vy;
+        p.rot += p.spin;
+        g.save();
+        g.translate(p.x, p.y);
+        g.rotate(p.rot);
+        g.fillStyle = p.color;
+        if (p.round) {
+          g.beginPath();
+          g.arc(0, 0, p.size / 2.6, 0, Math.PI * 2);
+          g.fill();
+        } else {
+          // a paper strip that seems to turn over as it falls
+          g.fillRect(-p.size / 2, -p.size / 4 * Math.abs(Math.cos(p.rot * 2)), p.size, p.size / 2 * Math.abs(Math.cos(p.rot * 2)) + 1);
+        }
+        g.restore();
+      });
+      requestAnimationFrame(frame);
+    });
+  }
+
+  /* ---------- Milenij Tim record (score and date only, no names: the repository is public) ---------- */
+  function showTeam() {
+    if (!team.score) { teamEl.hidden = true; return; }
+    teamEl.hidden = false;
+    teamEl.innerHTML = "🏆 Rekord Milenij tima: <b></b>";
+    teamEl.querySelector("b").textContent = team.score;
+    if (team.date) teamEl.appendChild(document.createTextNode(" · " + team.date));
+  }
+
+  function loadTeamRecord() {
+    fetch(BASE + "assets/snake-rekord.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (d) {
+        canSave = !!(d && d.spremanje);
+        if (d && d.score > 0) { team = d; if (overlay) showTeam(); }
+      })
+      .catch(function () { /* no record yet */ });
+  }
+
+  // `mkdocs serve` only: hooks/snake.py writes the new record to snake-rekord.json
+  function saveTeamRecord() {
+    var saved = score;
+    fetch(BASE + "__snake-rekord", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ score: saved })
+    })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        if (d.score > 0) team = d;
+        if (!overlay || state !== "over" || score !== saved) return; // a new game already started
+        showTeam();
+        if (d.saved) msgEl.textContent = "🎉 Novi rekord Milenij tima, spremljen! Razmak za novu igru";
+      })
+      .catch(function () { /* not on mkdocs serve: nothing to save to */ });
   }
 
   /* ---------- drawing ---------- */
