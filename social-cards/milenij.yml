@@ -1,0 +1,114 @@
+# Share card layout (the preview shown when a page link is pasted into Viber,
+# WhatsApp, email...). Used by the social plugin in mkdocs.yml (cards_layout: milenij).
+# Based on Material's default layout. The background (gradient, faint diamonds,
+# white logo tile, orange line, bottom strip) is background.png, drawn by
+# make_background.py; this file places the logo and the text on top of it.
+#
+# Card text:
+#   section     - the menu sections above the article, e.g. "Sidrene (Bazne) Cijene"
+#   title       - the article title (home page: the site description)
+#   description - `description:` from the article's front matter, else the site description
+
+definitions:
+
+  - &background_image >-
+    {{ config.docs_dir }}/../social-cards/background.png
+
+  - &logo >-
+    {{ config.docs_dir }}/{{ config.theme.logo }}
+
+  - &site_name >-
+    {{ config.site_name }}
+
+  - &web_address >-
+    {{ config.site_url | replace("https://", "") | replace("http://", "") | trim("/") }}
+
+  # Menu sections above the article; skips the article's own folder section (same title)
+  - &page_section >-
+    {%- if not page.is_homepage -%}
+      {{ page.ancestors | reverse | map(attribute = "title") | select
+         | reject("equalto", page.meta.get("title", page.title)) | join(" › ") }}
+    {%- endif -%}
+
+  - &page_title >-
+    {%- if page.is_homepage -%}
+      {{ config.site_description }}
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}
+
+  # What apps show as the link title
+  - &page_title_with_site_name >-
+    {%- if not page.is_homepage -%}
+      {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
+    {%- else -%}
+      {{ config.site_name }}
+    {%- endif -%}
+
+  - &page_description >-
+    {{ page.meta.get("description", config.site_description) | x }}
+
+# Meta tags (same as Material's default layout)
+tags:
+  og:type: website
+  og:title: *page_title_with_site_name
+  og:description: *page_description
+  og:image: "{{ image.url }}"
+  og:image:type: "{{ image.type }}"
+  og:image:width: "{{ image.width }}"
+  og:image:height: "{{ image.height }}"
+  og:url: "{{ page.canonical_url }}"
+  twitter:card: summary_large_image
+  twitter:title: *page_title_with_site_name
+  twitter:description: *page_description
+  twitter:image: "{{ image.url }}"
+
+size: { width: 1200, height: 630 }
+layers:
+
+  - background:
+      image: *background_image
+
+  # Logo on the white tile. The box has the logo's own proportions (136 x 121);
+  # a square box would cut off its sides.
+  - size: { width: 76, height: 68 }
+    offset: { x: 78, y: 70 }
+    background:
+      image: *logo
+
+  - size: { width: 700, height: 44 }
+    offset: { x: 196, y: 82 }
+    typography:
+      content: *site_name
+      color: "#ffffff"
+      font: { family: Roboto, style: Bold }
+
+  - size: { width: 1040, height: 38 }
+    offset: { x: 64, y: 240 }
+    typography:
+      content: *page_section
+      color: "#ffd08a"
+      font: { family: Roboto, style: Bold }
+
+  - size: { width: 980, height: 176 }
+    offset: { x: 62, y: 292 }
+    typography:
+      content: *page_title
+      color: "#ffffff"
+      line: { amount: 2, height: 1.15 }
+      font: { family: Roboto, style: Bold }
+
+  - size: { width: 1040, height: 72 }
+    offset: { x: 64, y: 476 }
+    typography:
+      content: *page_description
+      color: "#ffffffdd"
+      line: { amount: 2, height: 1.35 }
+      font: { family: Roboto, style: Regular }
+
+  - size: { width: 600, height: 28 }
+    offset: { x: 64, y: 579 }
+    typography:
+      content: *web_address
+      color: "#ffffffcc"
+      font: { family: Roboto, style: Medium }

@@ -62,8 +62,10 @@ Saving in GitHub's editor commits to `main`, which publishes the site.
   side, so the text stays readable on phones.
 - Abbreviations get hover tooltips from `includes/abbreviations.md` —
   add a line there (`*[PDV]: Porez na dodanu vrijednost`) to explain a new one everywhere.
-- Share cards (the preview shown when a link is pasted into email/Viber/WhatsApp) are
-  generated automatically on GitHub; they're skipped in local builds.
+- `description:` in the front matter (one sentence, about 100–150 characters) is the
+  text under the title in share cards and Google results. Without it, the site
+  description is used.
+- Share cards: see [Share cards](#share-cards) below.
 - The home page "Zadnje promjene" list and the "last updated" date on each page
   come from git history automatically. The list shows the 10 latest changes: each
   with its menu section, **Novo** (the change added the article) or **Ažurirano**,
@@ -80,6 +82,21 @@ Saving in GitHub's editor commits to `main`, which publishes the site.
   (`hooks/hooks.py`), nothing to maintain.
 - On GitHub, fonts and scripts are downloaded during the build and served from our own
   site (privacy plugin), so visitors' browsers don't contact Google. Local builds skip this.
+
+## Share cards
+
+When a page link is pasted into Viber, WhatsApp, email, Teams..., the app shows a preview
+card: a 1200×630 picture plus the title and description. GitHub makes one picture per page
+on every publish (local builds skip them, because Windows lacks the Cairo library).
+
+- See a page's card: add `assets/images/social/` after the domain and `index.png` at the
+  end, e.g. https://upute.milenij.eu/assets/images/social/sidrene-cijene/uvod/index.png
+- The card shows the menu section, the article title, its `description:` and the web address.
+- The design is in `social-cards/`: `milenij.yml` places the logo and text,
+  `background.png` is the background (drawn by `make_background.py`; run it after changing
+  colours or shapes there).
+- Chat apps keep a card they've already fetched for a while, so a changed card can take
+  time to show up there.
 
 ## Easter egg
 

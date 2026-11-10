@@ -1,5 +1,6 @@
 ---
 title: Ugostiteljstvo
+description: "Kako u cjeniku po režimima postaviti sidrene cijene, ispisati cjenik i napraviti datoteku za objavu na webu."
 tags:
   - sidrene cijene
 keywords:

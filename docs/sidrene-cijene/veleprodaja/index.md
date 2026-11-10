@@ -1,62 +1,58 @@
 ---
 title: Veleprodaja
+description: "Kada su sidrene cijene potrebne u veleprodaji i kako ih postaviti u cjeniku fakturiranja te izvesti datoteku za web."
 tags:
   - sidrene cijene
 keywords:
   - bazne cijene
   - veleprodaja
+  - fakturiranje
   - cjenik
 ---
 # Sidrene cijene – veleprodaja
 
-Sidrene cijene se postavljaju u cjeniku **Maloprodaja -> Cjenik artikala i usluga**.
+!!! info "Sidrene ili bazne cijene?"
+    Koristit ćemo naziv **Sidrene cijene** iako bi ispravan naziv bio *Bazne cijene*. Razlog tome je što se naziv *Sidrene cijene* koristi već duže vrijeme za istu materiju kojoj je novim zakonskim izmjenama dodijeljen naziv *Bazna cijena*.
 
-![Cjenik artikala i usluga – kartica Sidrena cijena](../../assets/images/sidrene-cijene-cjenik.png){: width="656" }
+## Zakonski i fiskalni okvir
 
-## Opis numeriranih akcija
-
-1. **Sidrena cijena** – kartica sa sidrenim cijenama.
-2. **Datum** – datum na koji se postavljaju sidrene cijene.
-3. **Postavi samo datum primjene** – zapisuje datum sidrenih cijena po artiklima.
-    - Postavlja datum sidrene cijene **SVIM** artiklima koji **NEMAJU** postavljen datum.
-    - Postavlja **NOVI** datum sidrene cijene **SAMO ODABRANIM** artiklima.
-4. **Postavi cijenu iz kalkulacije** – postavlja sidrenu cijenu po artiklima prema datumu sidrene cijene za svaki artikl, na način da pronađe cijenu na sidreni datum (traži cijene iz kalkulacija, početnog stanja i nivelacija). Ako neki artikl nema upisan datum, upisat će se datum sidrene cijene (2.).
-    - Postavlja sidrenu cijenu **SVIM** artiklima koji još **NEMAJU** postavljenu sidrenu cijenu.
-    - Postavlja sidrenu cijenu **SAMO ODABRANIM** artiklima.
-5. **Postavi trenutnu cijenu** – postavlja **TRENUTNU** cijenu kao sidrenu.
-    - Postavlja sidrenu cijenu **SVIM** artiklima koji još **NEMAJU** postavljenu sidrenu cijenu.
-    - Postavlja sidrenu cijenu **SAMO ODABRANIM** artiklima.
-6. **Ispis cjenika** – ispis cjenika sa sidrenim cijenama.
-7. **Eksport u datoteku** – snimanje datoteke sa sidrenim cijenama za postavljanje na internet stranice.
-8. **Sidrena** i **S.datum** – kolone sa sidrenim cijenama i datumom sidrene cijene.
-9. **Datum primjene** – datum sidrene cijene za trenutni artikl.
-10. **Sidrena cijena** – sidrena cijena za trenutni artikl.
-11. **Ispis** – stupac u kojem se vidi koji su artikli označeni.
-
-!!! info "Odabrani artikli"
-    Prilikom postavljanja, cijene će se postaviti samo odabranim artiklima. U slučaju da nije odabran niti jedan artikl, cijene će se postaviti svim artiklima.
+* **Definicija:** Sidrena cijena označava cijenu po kojoj se određeni artikl ili usluga nudila na **10.9.2026.** ili na datum kad je prvi put stavljen/a na prodaju, ako je taj dan kasniji od 10.9.2026. (tj. ako na 10.9.2026. tog artikla/usluge nije bilo u ponudi).
+* **Fiskalizacija i izdavanje računa:**
+    * Na fiskalnom računu koji se uručuje gostu iskazuje se i naplaćuje **isključivo trenutna važeća cijena**.
+    * Sidrena cijena je evidencijski i informativni podatak koji se prikazuje u cjeniku i promidžbenim materijalima, ali ne utječe na fiskalnu osnovicu računa.
+* **Objava podataka:** Trgovine koje posjeduju web stranicu dužne su na istoj osigurati uvid u datoteku sa sidrenim cijenama, bez obzira na to imaju li cjenik na webu ili samo informacije o firmi.
+* **Obveza:** U samoj veleprodaji nije potrebno imati upisane sidrene cijene. Sidrene cijene su obavezne samo u poslovanju s građanstvom (B2C). Ali, ako imate **maloprodaju iz veleprodaje**, obveznici ste istaknuti i sidrene cijene za svu robu i usluge koje nudite.
 
 ## Postupak postavljanja
 
-### Ručno postavljanje za pojedini artikl
+Sidrene cijene se postavljaju u cjeniku **Fakturiranje -> Cjenik -> Artikala i usluga**.
 
-Sidrene cijene je moguće postaviti ručno za svaki artikl. Klikom na **Promjeni** omogućuje se upis datuma (9.) i sidrene cijene (10.). Nakon toga je potrebno kliknuti **Spremi**.
+### Postupak A: Automatsko postavljanje za cijeli cjenik
 
-### Postavljanje svim artiklima
+![Cjenik artikala i usluga – kartica Sidrene cijene](../../assets/images/sidrene-cijene-veleprodaja-cjenik.png){: width="836" }
 
-Najbolje je slijediti sve korake od 1. do 7.
+Opis numeriranih akcija:
 
-1. Otvorite karticu **Sidrena cijena**.
-2. Provjerite da je za datum sidrenih cijena upisan **10.09.2026.**
-3. Postavite datum za sidrene cijene (**Postavi samo datum primjene**) – ovaj korak se može i preskočiti jer će sljedeći korak postaviti i datum.
-4. Postavite sidrenu cijenu i datum (**Postavi cijenu iz kalkulacije**) – program će potražiti po ulaznim dokumentima i upisati ispravnu sidrenu cijenu (i datum, ako još nije bio upisan). Ponavljanjem ove radnje program traži i postavlja ispravnu sidrenu cijenu na datum sidrene cijene koji je upisan uz svaki artikl.
-5. **Postavi trenutnu cijenu** možete koristiti ako ne koristite kalkulacije.
-6. **Ispis cjenika** sa sidrenim cijenama.
-7. Snimanje datoteke za internet (**Eksport u datoteku**).
+1. Kartica sa sidrenim cijenama.
+2. **Automatski upis sidrenih cijena** – postavlja sidrenu cijenu i datum svim artiklima na način da pronađe cijenu na sidreni datum (traži cijene iz kalkulacija, početnog stanja i nivelacija). Ako neki artikl nema upisan datum, upisat će se zakonski definirani datum sidrene cijene (10.09.2026.), ili datum prve kalkulacije ako je artikl uveden u prodaju nakon tog datuma.
+3. Otvara prozor za ispis naljepnica.
+4. Snimanje datoteke sa sidrenim cijenama za postavljanje na internet stranice.
+5. Otvara prozor za ručnu promjenu cijene i datuma za pojedini artikl.
+6. Datum sidrene cijene.
+7. Sidrena cijena artikla.
+8. Maloprodajna cijena artikla.
 
-    Prije snimanja potrebno je na desni klik (na gumb **Eksport u datoteku**) upisati podatke o poslovnici, tj. nazivu datoteke.
+### Postupak B: Pojedinačna ručna izmjena
 
-    !!! warning "Naziv datoteke"
-        Naziv datoteke je zakonski definiran, pa je najbolje samo kliknuti na **Prefiks datoteke trgovine**.
+Osim automatskog postavljanja cijena za sve artikle, sidrenu cijenu i datum je moguće posebno postaviti ručno za svaki artikl. Klikom na **Promijeni** (5) otvara se prozor za upis sidrene cijene. Tu je moguće upisati/promijeniti datum sidrenja (1) i sidrenu cijenu (2). Za spremanje je potrebno kliknuti **U redu** (4). Opcija **Sljedeći artikl/usluga** (3) automatski prelazi na sljedeći artikl za upis cijene.
 
-    ![Prefiks datoteke](../../assets/images/sidrene-cijene-prefiks-datoteke.png){: width="389" }
+![Prozor Sidrena cijena](../../assets/images/sidrene-cijene-veleprodaja-promjena.png){: width="417" }
+
+## Generiranje datoteke za web objavu
+
+Datoteku za postavljanje na web možete snimiti klikom na **Eksport u datoteku**. Prije snimanja potrebno je na desni klik upisati podatke o poslovnici, tj. nazivu datoteke.
+
+!!! warning "Naziv datoteke"
+    Naziv datoteke je zakonski definiran, pa je najbolje samo kliknuti na **Prefiks datoteke trgovine**.
+
+![Prefiks datoteke](../../assets/images/sidrene-cijene-prefiks-datoteke.png){: width="511" }

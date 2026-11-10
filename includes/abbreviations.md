@@ -9,3 +9,11 @@
 *[MeR]: Informacijski posrednik Elektronički računi d.o.o.
 *[B2B]: Poslovanje između poslovnih subjekata (tvrtki i obrta)
 *[XML]: Strukturirani format datoteke u kojem se šalje eRačun
+*[B2C]: Poslovanje s krajnjim potrošačima (građanima)
+*[B2G]: Poslovanje s tijelima javne vlasti (državna tijela, javne ustanove)
+*[ZZP]: Zakon o zaštiti potrošača
+*[QR]: Kvadratni kod koji se skenira kamerom mobitela i otvara poveznicu (npr. na cjenik)
+*[RACK]: Osnovni hotelski cjenik – službena, najviša redovna cijena smještaja, bez popusta
+*[rack]: Osnovni hotelski cjenik – službena, najviša redovna cijena smještaja, bez popusta
+*[csv]: Tekstualna tablica s vrijednostima odvojenim zarezom ili točka-zarezom; strojno čitljiva, otvara se i u Excelu
+*[xml]: Strukturirani, strojno čitljiv format datoteke

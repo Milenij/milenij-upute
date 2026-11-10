@@ -2,7 +2,7 @@ site_name: Milenij Upute
 site_url: https://upute.milenij.eu/
 site_description: Upute za rad u Milenij programima # search engines and share cards
 dev_addr: 127.0.0.1:8001 # local `mkdocs serve` port (8000 is used by something else)
-copyright: "Copyright &copy; 2025. Milenij d.o.o. - Sva prava pridržana. | Verzija: GIT_HASH"
+copyright: "Copyright &copy; 2026. Milenij d.o.o. - Sva prava pridržana. | Verzija: GIT_HASH"
 # ✏️ button on each article that opens its file in GitHub's editor. Hidden from visitors:
 # it only shows in a browser that opened a page with ?urednik once (javascripts/urednik.js).
 # No repo_url on purpose, so the header doesn't show a GitHub link to everyone.
@@ -98,9 +98,9 @@ plugins:
       # Needs the Cairo graphics library, which Windows doesn't have, so cards are
       # only generated on GitHub (CI=true there); local builds skip them.
       enabled: !ENV [CI, false]
-      cards_layout_options:
-        background_color: "#5279af"
-        color: "#ffffff"
+      # Our own card design: social-cards/milenij.yml (README: "Share cards")
+      cards_layout_dir: social-cards
+      cards_layout: milenij
 
 extra_css:
   - stylesheets/extra.css

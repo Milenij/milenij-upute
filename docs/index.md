@@ -1,5 +1,6 @@
 ---
 title: Početna
+description: "Upute za Fiskalizaciju 2.0, otvaranje nove poslovne godine, sidrene cijene i ostale radnje u Milenij programima."
 ---
 
 # Dobrodošli u Milenij Upute
@@ -28,9 +29,9 @@ Ovdje možete pronaći sve upute za Milenij programe. Odaberite područje ili up
 
     ---
 
-    Postavljanje sidrenih cijena za ugostiteljstvo, wellness, maloprodaju i veleprodaju.
+    Postavljanje sidrenih cijena za ugostiteljstvo, hotelijerstvo, wellness, maloprodaju i veleprodaju.
 
-    [:octicons-arrow-right-24: Ugostiteljstvo](sidrene-cijene/ugostiteljstvo/index.md)
+    [:octicons-arrow-right-24: Uvod](sidrene-cijene/uvod/index.md)
 
 </div>
 

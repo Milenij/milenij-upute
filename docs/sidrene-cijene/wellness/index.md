@@ -1,5 +1,6 @@
 ---
 title: Wellness
+description: "Postavljanje sidrenih cijena za artikle, usluge i pakete u wellnessu te izrada datoteke za objavu na webu."
 tags:
   - sidrene cijene
 keywords:
